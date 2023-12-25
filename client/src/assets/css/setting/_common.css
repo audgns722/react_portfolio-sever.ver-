@@ -1,0 +1,70 @@
+body {
+  background: var(--bgcolor);
+  overflow: hidden;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  height: auto;
+}
+
+section {
+  margin-bottom: 50vh;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.mouse__cursor {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.cursor2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: blur(7px);
+  clip-path: circle(50% at center);
+  animation: cursorAnimation 2s infinite ease-in-out;
+}
+
+.cursor-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: var(--section2);
+}
+
+@keyframes cursorAnimation {
+  0% {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    background-color: rgba(136, 217, 255, 0.5);
+    transform: scale(1.1); /* 크기를 약간 키움 */
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+}

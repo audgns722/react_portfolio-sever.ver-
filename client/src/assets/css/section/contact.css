@@ -1,0 +1,124 @@
+#contact {
+  width: 100%;
+  height: 100vh;
+  color: var(--white);
+  display: flex;
+  align-items: flex-end;
+}
+
+.contact__me {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contact__me textarea,
+.contact__me input {
+  width: 100%;
+  background: #000000e8;
+  border: 1px solid var(--white);
+  padding: 15px;
+  color: var(--white);
+  resize: #000000e8;
+  margin-bottom: 15px;
+}
+
+.contact__me .left {
+  width: 45%;
+  font-family: var(--section4);
+}
+.contact__me .left .title {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.comment__top {
+  display: flex;
+  justify-content: space-between;
+}
+.comment__top input {
+  width: 48%;
+  padding-left: 15px;
+  background: #000000e8;
+  border: 1px solid var(--white);
+}
+.contact__me .comment__btn {
+  width: 100%;
+  padding: 15px;
+  background: #060606e8;
+  border: 1px solid var(--white);
+  color: var(--white);
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.comment__result {
+  height: 20vh;
+}
+.page_numbers {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.page_numbers li.active {
+  background-color: #35353528;
+}
+
+.page_numbers li a {
+  cursor: pointer;
+  padding: 5px 15px;
+}
+.comment__result .comments {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--white);
+}
+.comment__result .comments .text {
+  width: 45%;
+}
+.comment__result .comments .author {
+  text-align: right;
+  width: 15%;
+}
+.comment__result .comments .delete {
+  position: relative;
+}
+.comment__result .comments .delete input {
+  border: none;
+  margin-bottom: 0;
+}
+.comment__result .comments .delete__btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 5px;
+  border: 1px solid var(--white);
+  color: var(--white);
+  background: none;
+  cursor: pointer;
+}
+
+/* right */
+.contact__me .right {
+  width: 45%;
+  font-family: var(--section4);
+}
+
+.contact__me .right .title {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.contact__me .right textarea {
+  height: 20vh;
+}
+.contact__me .right #button {
+  background: #060606e8;
+  cursor: pointer;
+  font-size: 2rem;
+}
