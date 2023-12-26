@@ -57,7 +57,7 @@ canvas {
 @keyframes cursorAnimation {
   0% {
     background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1);
+    transform: scale(0.8);
   }
   50% {
     background-color: rgba(136, 217, 255, 0.5);
@@ -65,6 +65,6 @@ canvas {
   }
   100% {
     background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
