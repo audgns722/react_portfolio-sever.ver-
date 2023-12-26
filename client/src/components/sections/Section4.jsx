@@ -3,7 +3,7 @@ import Img3 from "../../assets/img/test.png"; // 이미지 변경
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Mouse from "../utils/Mouse";
 
 const Section4 = () => {
@@ -13,6 +13,12 @@ const Section4 = () => {
   const text1Ref = useRef(null); // 필요한 경우 text1, text2 참조
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const navigateToDetail = () => {
+    navigate("/detail4");
+  };
 
   useEffect(() => {
     const pathAnimation = gsap.to(pathMaskRef.current, {
@@ -64,63 +70,6 @@ const Section4 = () => {
     };
   }, []);
 
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const url = e.currentTarget.getAttribute("href");
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        window.location.href = url;
-      },
-    });
-
-    // 타임라인에 애니메이션 추가
-    tl.to(text1Ref.current, {
-      opacity: 0,
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      scale: 0,
-      duration: 2,
-    })
-      .to(
-        text2Ref.current,
-        {
-          opacity: 0,
-          right: "50%",
-          bottom: "50%",
-          transform: "translate(50%, 50%)",
-          scale: 0,
-          duration: 2,
-        },
-        0
-      ) // 0은 시작 시간을 의미하여 동시에 시작됨
-      .to(
-        pathMaskRef.current,
-        {
-          attr: { d: "M 0 280 Q 500 200 1000 280 Q 500 200 0 280" },
-          duration: 2,
-        },
-        0
-      )
-      .to(
-        "#section4 .image",
-        {
-          display: "none",
-        },
-        0
-      )
-      .to(
-        ".contents4 .desc",
-        {
-          scale: 0,
-          opacity: 0,
-          yPercent: -200,
-        },
-        0
-      );
-  };
-
   return (
     <section id="section4" ref={section4Ref}>
       <div className="contents4">
@@ -132,14 +81,16 @@ const Section4 = () => {
             Api Site
           </div>
           <div className="desc">
-            MovieKing은 Vue.js와 영화Api 를 활용해 사용자가 영화 정보를 쉽게
-            찾을수 있는 웹 플랫폼입니다.
+            MovieKing은 Vue.js와 영화Api를 활용해
+            <br />
+            영화 정보를 쉽게 찾을수 있는 웹 플랫폼입니다.
           </div>
           <svg
             className="content__img content__img--3"
             width="100%"
             height="100%"
             viewBox="0 0 1000 560"
+            onClick={navigateToDetail}
           >
             <defs>
               <filter id="displacementFilter3">
@@ -168,14 +119,12 @@ const Section4 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/detail4" onClick={handleLinkClick}>
-              <image
-                xlinkHref={Img3}
-                width="100%"
-                height="100%"
-                mask="url(#pathMask)"
-              />
-            </Link>
+            <image
+              xlinkHref={Img3}
+              width="100%"
+              height="100%"
+              mask="url(#pathMask)"
+            />
           </svg>
           <Mouse imgRef={imgRef} />
         </div>

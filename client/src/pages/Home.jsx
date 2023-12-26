@@ -5,6 +5,7 @@ import Section3 from "../components/sections/Section3";
 import Section4 from "../components/sections/Section4";
 import Section5 from "../components/sections/Section5";
 import Contact from "../components/sections/Contact";
+import Section6 from "../components/sections/Section6";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Section6 />
       <Contact />
     </>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Img4 from "../../assets/img/section5bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Mouse from "../utils/Mouse";
 
 const Section5 = () => {
@@ -12,6 +12,12 @@ const Section5 = () => {
   const text1Ref = useRef(null); // 필요한 경우 text1, text2 참조
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const navigateToDetail = () => {
+    navigate("/detail5");
+  };
 
   useEffect(() => {
     const maskAnimation = gsap.to(circleMask5Ref.current, {
@@ -65,63 +71,6 @@ const Section5 = () => {
     };
   }, []);
 
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const url = e.currentTarget.getAttribute("href");
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        window.location.href = url;
-      },
-    });
-
-    // 타임라인에 애니메이션 추가
-    tl.to(text1Ref.current, {
-      opacity: 0,
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      scale: 0,
-      duration: 2,
-    })
-      .to(
-        text2Ref.current,
-        {
-          opacity: 0,
-          right: "50%",
-          bottom: "50%",
-          transform: "translate(50%, 50%)",
-          scale: 0,
-          duration: 2,
-        },
-        0
-      ) // 0은 시작 시간을 의미하여 동시에 시작됨
-      .to(
-        circleMask5Ref.current,
-        {
-          attr: { r: 0 },
-          duration: 2,
-        },
-        0
-      )
-      .to(
-        "#section5 .image",
-        {
-          display: "none",
-        },
-        0
-      )
-      .to(
-        ".contents5 .desc",
-        {
-          scale: 0,
-          opacity: 0,
-          yPercent: -200,
-        },
-        0
-      );
-  };
-
   return (
     <section id="section5" ref={section5Ref}>
       <div className="contents5">
@@ -133,14 +82,16 @@ const Section5 = () => {
             Php
           </div>
           <div className="desc">
-            분리의신은 일상 생활 속에서 발생하는 잘못된 분리배출을 알려주고,
-            간편한 검색을 통해 올바른 배출 방법을 안내하는 웹사이트입니다.
+            일상 생활 속에서 발생하는 잘못된 분리배출을
+            <br /> 알려주고, 간편한 검색을 통해 올바른 배출
+            <br /> 방법을 안내하는 웹사이트입니다.
           </div>
           <svg
             className="content__img content__img--5"
             width="100%"
             height="100%"
             viewBox="0 0 1920 579"
+            onClick={navigateToDetail}
           >
             <defs>
               <filter id="displacementFilter5">
@@ -176,14 +127,12 @@ const Section5 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/detail5" onClick={handleLinkClick}>
-              <image
-                xlinkHref={Img4}
-                width="100%"
-                height="100%"
-                mask="url(#circleMask5)"
-              />
-            </Link>
+            <image
+              xlinkHref={Img4}
+              width="100%"
+              height="100%"
+              mask="url(#circleMask5)"
+            />
           </svg>
           <Mouse imgRef={imgRef} />
         </div>

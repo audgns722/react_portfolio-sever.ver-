@@ -11,6 +11,9 @@ body {
 section {
   margin-bottom: 50vh;
 }
+#section5 {
+  margin-bottom: 20vh;
+}
 
 canvas {
   position: absolute;

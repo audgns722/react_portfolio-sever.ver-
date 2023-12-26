@@ -3,7 +3,7 @@ import Img2 from "../../assets/img/section3bg.png";
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Mouse from "../utils/Mouse";
 
 const Section3 = () => {
@@ -13,6 +13,12 @@ const Section3 = () => {
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const navigateToDetail = () => {
+    navigate("/detail3");
+  };
 
   useEffect(() => {
     const maskAnimation = gsap.to(circleMaskRef.current, {
@@ -66,64 +72,6 @@ const Section3 = () => {
     };
   }, []);
 
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const url = e.currentTarget.getAttribute("href");
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        window.location.href = url;
-      },
-    });
-
-    // 타임라인에 애니메이션 추가
-    tl.to(text1Ref.current, {
-      opacity: 0,
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      scale: 0,
-      duration: 2,
-    })
-      .to(
-        text2Ref.current,
-        {
-          opacity: 0,
-          right: "50%",
-          bottom: "50%",
-          transform: "translate(50%, 50%)",
-          scale: 0,
-          duration: 2,
-        },
-        0
-      ) // 0은 시작 시간을 의미하여 동시에 시작됨
-      .to(
-        circleMaskRef.current,
-        {
-          attr: { r: 0 },
-          duration: 2,
-        },
-        0
-      )
-      .to(
-        "#section3 .image",
-        {
-          display: "none",
-        },
-        0
-      )
-      .to(
-        ".contents3 .desc",
-        {
-          xPercent: 100,
-          scale: 0,
-          opacity: 0,
-          yPercent: -200,
-        },
-        0
-      );
-  };
-
   return (
     <section id="section3">
       <div className="contents3" ref={section3Ref}>
@@ -135,14 +83,16 @@ const Section3 = () => {
             blog site
           </div>
           <div className="desc">
-            React, Node.js, MongoDB, Firebase를 사용하여 블로그 플랫폼을
-            구축하였습니다.
+            React, Node.js, MongoDB, Firebase를 사용하여
+            <br />
+            블로그 플랫폼을 구축하였습니다.
           </div>
           <svg
             className="content__img content__img--2"
             width="100%"
             height="100%"
             viewBox="0 0 913 516"
+            onClick={navigateToDetail}
           >
             <defs>
               <filter id="displacementFilter2">
@@ -179,14 +129,12 @@ const Section3 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/detail3" onClick={handleLinkClick}>
-              <image
-                xlinkHref={Img2}
-                width="100%"
-                height="100%"
-                mask="url(#circleMask2)"
-              />
-            </Link>
+            <image
+              xlinkHref={Img2}
+              width="100%"
+              height="100%"
+              mask="url(#circleMask2)"
+            />
           </svg>
           <Mouse imgRef={imgRef} />
         </div>

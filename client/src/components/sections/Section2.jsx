@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Img1 from "../../assets/img/section2bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Mouse from "../utils/Mouse";
 
 const Section2 = () => {
@@ -12,6 +12,12 @@ const Section2 = () => {
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const navigateToDetail = () => {
+    navigate("/detail2");
+  };
 
   useEffect(() => {
     const maskAnimation = gsap.to(circleMaskRef.current, {
@@ -79,7 +85,7 @@ const Section2 = () => {
             api site
           </div>
           <div className="desc">
-            유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을
+            유튜브 API를 이용하여 좋아하는 다큐멘터리 <br /> 채널과 영상을
             모아봤습니다.
           </div>
           <svg
@@ -87,6 +93,7 @@ const Section2 = () => {
             width="100%"
             height="100%"
             viewBox="0 0 504 719"
+            onClick={navigateToDetail}
           >
             <defs>
               <filter id="displacementFilter">
@@ -116,14 +123,12 @@ const Section2 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/detail2">
-              <image
-                xlinkHref={Img1}
-                width="100%"
-                height="100%"
-                mask="url(#circleMask)"
-              />
-            </Link>
+            <image
+              xlinkHref={Img1}
+              width="100%"
+              height="100%"
+              mask="url(#circleMask)"
+            />
           </svg>
           <Mouse imgRef={imgRef} />
         </div>
