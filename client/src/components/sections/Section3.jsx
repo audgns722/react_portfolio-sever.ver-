@@ -31,7 +31,6 @@ const Section3 = () => {
         start: "center center",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
       },
     });
 
