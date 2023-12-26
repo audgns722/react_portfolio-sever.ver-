@@ -21,7 +21,6 @@ const Section5 = () => {
         start: "top center",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
       },
     });
 
@@ -33,7 +32,6 @@ const Section5 = () => {
         start: "center center",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
       },
     });
 

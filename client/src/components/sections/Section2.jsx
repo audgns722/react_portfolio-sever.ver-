@@ -68,68 +68,6 @@ const Section2 = () => {
     };
   }, []);
 
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const url = e.currentTarget.getAttribute("href");
-
-    // 타임라인 생성
-    const tl = gsap.timeline({
-      onComplete: () => {
-        window.location.href = url;
-      },
-    });
-
-    // 타임라인에 애니메이션 추가
-    tl.to(text1Ref.current, {
-      opacity: 0,
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      scale: 0,
-      duration: 2,
-    })
-      .to(
-        text2Ref.current,
-        {
-          opacity: 0,
-          right: "50%",
-          bottom: "50%",
-          transform: "translate(50%, 50%)",
-          scale: 0,
-          duration: 2,
-        },
-        0
-      ) // 0은 시작 시간을 의미하여 동시에 시작됨
-      .to(
-        circleMaskRef.current,
-        {
-          attr: { r: 0 },
-          duration: 2,
-        },
-        0
-      )
-      .to(
-        "#section2 .image",
-        {
-          display: "none",
-        },
-        0
-      )
-      .to(
-        ".contents2 .desc",
-        {
-          xPercent: 100,
-          scale: 0,
-          opacity: 0,
-          yPercent: -200,
-        },
-        0
-      );
-  };
-
-  // ScrollTrigger 비활성화
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
   return (
     <section id="section2" ref={section2Ref}>
       <div className="contents2">
@@ -178,7 +116,7 @@ const Section2 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/detail2" onClick={handleLinkClick}>
+            <Link to="/detail2">
               <image
                 xlinkHref={Img1}
                 width="100%"

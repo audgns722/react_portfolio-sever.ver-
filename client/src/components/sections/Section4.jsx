@@ -22,7 +22,6 @@ const Section4 = () => {
         start: "top center",
         end: "bottom bottom",
         scrub: 1,
-        // markers: true,
       },
     });
     gsap.to(".contents4 .desc", {
@@ -32,7 +31,6 @@ const Section4 = () => {
         start: "center center",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
       },
     });
 
