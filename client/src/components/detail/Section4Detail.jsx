@@ -1,11 +1,24 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useNavigate } from "react-router-dom";
 
 const Section4Detail = () => {
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    gsap.to("#Detail2", {
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        navigate(-1); // 이전 페이지로 돌아감
+      },
+    });
+  };
 
   useEffect(() => {
     // 페이지 로드 시 스크롤을 맨 위로 이동
@@ -72,6 +85,9 @@ const Section4Detail = () => {
           </div>
         </div>
         <div className="right__box">
+          <div className="close" onClick={handleClose}>
+            X
+          </div>
           <div className="detail__wrap">
             <div className="details">
               <h1>나만의 다큐 유튜브 사이트 만들기</h1>

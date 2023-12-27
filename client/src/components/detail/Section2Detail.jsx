@@ -246,6 +246,7 @@ const Section2Detail = () => {
           <div className="imgWrap" ref={imgRef}>
             <div className="text1" ref={text1Ref}>
               youtube
+              <span>{commentList.length}</span>
             </div>
             <div className="text2" ref={text2Ref}>
               api site

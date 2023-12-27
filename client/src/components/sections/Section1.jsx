@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import '../../utils/canvas'
 
 const Section1 = () => {
+
   const fontVariables = [
     "--section2",
     "--section3",

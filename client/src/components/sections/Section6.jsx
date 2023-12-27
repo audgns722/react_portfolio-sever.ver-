@@ -17,7 +17,6 @@ const Section6 = () => {
           end: "bottom bottom",
           toggleActions: "play none none none",
           scrub: true,
-          markers: true,
         },
       }
     );
