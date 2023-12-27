@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import '../../utils/canvas'
+import { Canvas } from "../../utils/canvas";
 
 const Section1 = () => {
-
+  useEffect(() => {
+    Canvas("section1");
+  }, []);
   const fontVariables = [
     "--section2",
     "--section3",

@@ -1,20 +1,39 @@
 #section3 {
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 #section3 .contents3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  position: relative;
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
   height: 100%;
 }
 
 #section3 .contents3 .cont__box {
   position: relative;
   max-width: 1280px;
-  width: 50%;
+  height: 50%;
+  max-height: 719px;
+  width: 70%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#section3 .hidden__img {
+  position: absolute;
+  display: none;
+  background-image: url(../../img/section3bg.png);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 #section3 .contents3 .text1 {
@@ -26,6 +45,7 @@
   color: var(--white);
   font-family: var(--section3);
   font-size: 7.3vw;
+  z-index: 1;
 }
 
 #section3 .contents3 .text2 {
@@ -38,16 +58,17 @@
   color: var(--white);
   font-family: var(--section3);
   font-size: 6.25vw;
+  z-index: 1;
 }
 
 .contents3 .desc {
   opacity: 0;
   position: absolute;
   text-align: left;
-  left: 0;
+  left: -20px;
   bottom: -20px;
   transform: translateY(100%);
-  font-family: "NanumSquareNeo";
+  font-family: var(--korfont);
   font-weight: 200;
   color: var(--white);
 }

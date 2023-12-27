@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Detailsec2 = () => {
   return (
@@ -7,10 +7,10 @@ const Detailsec2 = () => {
         <div className="details">
           <h1>나만의 다큐 유튜브 사이트 만들기</h1>
           <p>
-            이 프로젝트는 YouTube API를 활용하여 다큐멘터리 콘텐츠를
-            중심으로 한 독특한 서비스를 제공하는 웹사이트를 구축하는 것이
-            목표였습니다. 사용자들이 다양한 다큐멘터리를 쉽게 탐색하고
-            감상할 수 있는 사이트를 개발했습니다.
+            이 프로젝트는 YouTube API를 활용하여 다큐멘터리 콘텐츠를 중심으로 한
+            독특한 서비스를 제공하는 웹사이트를 구축하는 것이 목표였습니다.
+            사용자들이 다양한 다큐멘터리를 쉽게 탐색하고 감상할 수 있는 사이트를
+            개발했습니다.
           </p>
         </div>
         <div className="details">
@@ -43,7 +43,7 @@ const Detailsec2 = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Detailsec2
+export default Detailsec2;

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { smooth } from "./utils/smooth";
 
 import Main from "./components/layout/Main.jsx";
+import Footer from "./components/layout/Footer.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -14,11 +15,10 @@ const App = () => {
       <Main>
         <Routes>
           <Route path="/" element={<Home />} />
-        </Routes >
+        </Routes>
       </Main>
+      <Footer />
     </>
-
-
   );
 };
 

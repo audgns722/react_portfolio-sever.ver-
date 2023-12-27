@@ -7,18 +7,26 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
+#main {
+  display: flex;
+  gap: 40vh;
+  flex-direction: column;
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--engfont);
+  color: var(--white);
+}
+
 .container {
   width: 1280px;
   margin: 0 auto;
   height: auto;
-}
-
-section {
-  margin-bottom: 50vh;
-}
-
-#section5 {
-  margin-bottom: 20vh;
 }
 
 canvas {
@@ -77,5 +85,122 @@ canvas {
   100% {
     background-color: rgba(255, 255, 255, 0.5);
     transform: scale(0.8);
+  }
+}
+
+/* close */
+.close {
+  color: var(--white);
+  position: absolute;
+  right: 0;
+  top: 50px;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.3s;
+}
+#section2 .close:hover {
+  transform: scale(1.2);
+}
+.circles {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate3D(-50%, -50%, 0);
+}
+
+.circles span {
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+.circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 115% 140% 145% 110%/125% 140% 110% 125%;
+  mix-blend-mode: screen;
+  &:nth-child(1) {
+    border-color: #db4437;
+
+    animation: spin1 5.5s linear infinite;
+  }
+  &:nth-child(2) {
+    border-color: #f4b400;
+
+    animation: spin2 5.5s linear infinite;
+  }
+  &:nth-child(3) {
+    border-color: #4285f4;
+
+    animation: spin3 5.5s linear infinite;
+  }
+  &:nth-child(4) {
+    border-color: #0f9d58;
+
+    animation: spin4 5.5s linear infinite;
+  }
+}
+
+@keyframes spin1 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(72deg);
+  }
+  100% {
+    transform: rotate(-288deg);
+  }
+}
+
+@keyframes spin3 {
+  0% {
+    transform: rotate(-144deg);
+  }
+  100% {
+    transform: rotate(216deg);
+  }
+}
+
+@keyframes spin4 {
+  0% {
+    transform: rotate(216deg);
+  }
+  100% {
+    transform: rotate(-144deg);
+  }
+}
+
+.warning {
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+  padding: 50%;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate3D(-50%, -50%, 0);
+}
+
+@supports (mix-blend-mode: screen) {
+  .warning {
+    display: none;
   }
 }
