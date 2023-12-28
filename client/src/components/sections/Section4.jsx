@@ -12,7 +12,7 @@ const Section4 = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const pathMaskRef = useRef(null);
   const section4Ref = useRef(null);
-  const text1Ref = useRef(null); // 필요한 경우 text1, text2 참조
+  const text1Ref = useRef(null); 
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
 

@@ -34,7 +34,6 @@
   right: 50%;
   bottom: 50%;
   transform: translate(50%, 50%);
-  position: absolute;
   color: var(--white);
   font-family: var(--section4);
   font-size: 5.25vw;

@@ -1,13 +1,14 @@
 #section1 {
   width: 100%;
-  height: 110vh;
-  background: linear-gradient(0deg, transparent, hsl(15deg 55% 6%));
-  position: relative;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: -1;
 }
 
 .sec1__cont {
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -34,7 +35,8 @@
 }
 
 .scroll__down {
-  height: 20vh;
+  height: 10vh;
+  margin-bottom: 5vh;
   text-align: center;
   display: flex;
   flex-direction: column;

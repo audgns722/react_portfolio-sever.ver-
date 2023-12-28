@@ -5,6 +5,8 @@ import { smooth } from "./utils/smooth";
 
 import Main from "./components/layout/Main.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import Intro from "./components/layout/Intro.jsx";
+import About from "./components/sections/About.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -12,12 +14,14 @@ const App = () => {
   });
   return (
     <>
+      <Intro />
       <Main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

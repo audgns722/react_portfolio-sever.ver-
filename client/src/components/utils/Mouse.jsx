@@ -25,8 +25,8 @@ const Mouse = ({ imgRef }) => {
     const showCursor = () => {
       gsap.fromTo(
         mouseCursorRef.current,
-        { autoAlpha: 0, scale: 0.5 },
-        { autoAlpha: 1, scale: 1, duration: 0.3 }
+        { autoAlpha: 0, scale: 0.2 },
+        { autoAlpha: 1, scale: 1.5, duration: 0.1 }
       );
     };
 

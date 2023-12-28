@@ -1,0 +1,70 @@
+#about {
+  width: 100%;
+  height: 500vh;
+}
+
+#about .about__wrap {
+  width: 100%;
+  height: 100%;
+}
+
+#about .about__top {
+  width: 80%;
+  height: 200vh;
+  margin: 0 auto;
+}
+
+#about .about__top .text {
+  border-top: 1px solid #fff;
+  width: 100%;
+  font-family: var(--korfont);
+  padding-top: 10vh;
+  position: sticky;
+  top: 0;
+}
+#about .about__top .text h1 {
+  color: var(--white);
+  font-size: 22px;
+  text-align: left;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.profile__wrap {
+  width: 80%;
+  height: 200vh;
+  margin: 0 auto;
+  display: flex;
+}
+.profile__wrap .profile {
+  max-width: 400px;
+  max-height: 600px;
+  width: 100%;
+  height: 100%;
+  padding-top: 10vh;
+  position: sticky;
+  top: 0;
+}
+.profile__wrap .profile span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-image: url(../../img/profile.png);
+  position: sticky;
+  top: 0;
+}
+
+.profile__wrap .content {
+}
+
+.lineleft {
+  margin-top: 5vh;
+  width: 20%;
+  height: 5px;
+  background-color: #7e7e7e;
+}
+.lineleft.ln2 {
+  background-color: #d6ffb4;
+}

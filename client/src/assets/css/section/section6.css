@@ -55,7 +55,7 @@
 }
 .script__content .contents .img {
   border-radius: 15px;
-  background-image: url(../../img/search.png);
+  background-image: url(../../img/search.gif);
   width: 100%;
   min-width: 300px;
   height: 200px;
@@ -65,16 +65,16 @@
   transition: all 0.3s ease-in-out;
 }
 .script__content .contents .img.i2 {
-  background-image: url(../../img/quiz.png);
+  background-image: url(../../img/quiz.gif);
 }
 .script__content .contents .img.i3 {
-  background-image: url(../../img/gsap.png);
+  background-image: url(../../img/gsap.gif);
 }
 .script__content .contents .img.i4 {
-  background-image: url(../../img/slider.png);
+  background-image: url(../../img/slider.gif);
 }
 .script__content .contents .img.i5 {
-  background-image: url(../../img/mouse.png);
+  background-image: url(../../img/mouse.gif);
 }
 .script__content .contents p {
   font-family: var(--engfont);

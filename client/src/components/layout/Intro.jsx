@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Canvas } from "../../utils/canvas";
 
-const Section1 = () => {
+const Intro = () => {
   useEffect(() => {
     Canvas("section1");
   }, []);
@@ -42,7 +42,7 @@ const Section1 = () => {
   };
 
   return (
-    <section id="section1">
+    <div id="section1">
       <div className="sec1__cont">
         <h1 style={h1Style}>Hellow My PortFolio</h1>
         <p>
@@ -57,8 +57,8 @@ const Section1 = () => {
           포트폴리오를 볼 수 있습니다.
         </span>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Section1;
+export default Intro;

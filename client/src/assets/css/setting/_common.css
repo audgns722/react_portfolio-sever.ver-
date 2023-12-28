@@ -6,11 +6,29 @@ body::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-
 #main {
   display: flex;
   gap: 40vh;
   flex-direction: column;
+  position: relative;
+  background-color: var(--bgcolor);
+}
+
+#main::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-image: url(https://i.ibb.co/x3TCktM/645cbb8ec449398255b76326-noise.gif);
+  background-position: 0 0;
+  background-size: auto;
+  pointer-events: none;
+  opacity: 0.02;
+  transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  visibility: visible;
 }
 
 #footer {
@@ -21,8 +39,18 @@ body::-webkit-scrollbar {
   height: 100vh;
   font-family: var(--engfont);
   color: var(--white);
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #0a0a0a 0.01px,
+    #000000 0.01px,
+    #000000 0.01px
+  );
+  filter: noise(0.1);
 }
-
+#section2 {
+  margin-top: 20vh;
+}
 .container {
   width: 1280px;
   margin: 0 auto;
@@ -51,10 +79,9 @@ canvas {
 .cursor2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ff6a60c4;
   filter: blur(7px);
   clip-path: circle(50% at center);
-  animation: cursorAnimation 2s infinite ease-in-out;
 }
 
 .cursor-label {
@@ -66,24 +93,6 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  font-family: var(--section2);
-}
-
-@keyframes cursorAnimation {
-  0% {
-    background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(0.8);
-  }
-
-  50% {
-    background-color: rgba(136, 217, 255, 0.5);
-    transform: scale(1.1);
-    /* 크기를 약간 키움 */
-  }
-
-  100% {
-    background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(0.8);
-  }
+  font-size: 12px;
+  font-family: var(--section1);
 }

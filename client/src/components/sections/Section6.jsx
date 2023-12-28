@@ -36,26 +36,28 @@ const Section6 = () => {
   };
 
   const animateContents = () => {
-    document.querySelectorAll(".contents").forEach((element) => {
-      const { x, y } = getRandomPosition();
+    document
+      .querySelectorAll(".script__content .contents")
+      .forEach((element) => {
+        const { x, y } = getRandomPosition();
 
-      gsap.fromTo(
-        element,
-        { opacity: 0.5, x, y },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: "#Script",
-            start: "top center",
-            end: "bottom bottom",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    });
+        gsap.fromTo(
+          element,
+          { opacity: 0.5, x, y },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#Script",
+              start: "top center",
+              end: "bottom bottom",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
   };
   gsap.to(".reset", {
     scale: 1.2,
