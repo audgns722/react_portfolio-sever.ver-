@@ -45,7 +45,7 @@ input,
 select,
 table,
 textarea {
-  font-family: var(--mainfont-netflix), var(--mainfont-nanum),
+  font-family: var(--korfont2), var(--engfont),
     "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", helvetica, sans-serif;
 }
 

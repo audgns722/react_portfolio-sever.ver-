@@ -1,0 +1,181 @@
+#Sec3popup {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background-color: var(--bgcolor);
+}
+
+#Sec3popup .popup__wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Sec3popup .popup__wrap .popup__content {
+    max-width: 1300px;
+    width: 100%;
+    height: 70%;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+#Sec3popup .popup__wrap .popup__content .close {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../img/close.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+#Sec3popup .popup__wrap .popup__content .btn {
+    position: absolute;
+    right: 0;
+    bottom: -34px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    z-index: -1;
+}
+
+#Sec3popup .popup__wrap .popup__content .btn a {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    color: var(--title-color);
+    border-radius: 0 0 5px 5px;
+    font-size: 16px;
+    font-family: var(--engfont);
+    display: inline-block;
+    display: flex;
+    transition: all 0.3s;
+}
+
+#Sec3popup .popup__wrap .popup__content .btn a:nth-child(1) {
+    background-color: #ffe4d2;
+}
+
+#Sec3popup .popup__wrap .popup__content .btn a:hover {
+    background-color: rgb(255, 193, 143);
+}
+
+#Sec3popup .popup__wrap .popup__content .btn a .arrow {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../img/arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    transform: rotate(90deg);
+    margin-left: 5px;
+}
+
+#Sec3popup .popup__wrap .popup__content .btn a:last-child {
+    margin-left: 5px;
+}
+
+#Sec3popup .popup__wrap .popup__content .left {
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#Sec3popup .popup__wrap .popup__content .left .img {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../img/testimg.png);
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 0 15px 15px 0;
+}
+
+#Sec3popup .popup__wrap .popup__content .right {
+    width: 51%;
+    height: 100%;
+    color: var(--black);
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+
+#Sec3popup .popup__wrap .popup__content .right::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+#Sec3popup .popup__wrap .popup__content .right .content {
+    width: 100%;
+    height: 100%;
+}
+
+.popup__wrap .popup__content .right .content h1,
+#Sec3popup .popup__wrap .popup__content .right .content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+#Sec3popup .popup__content .right .content h1 {
+    font-family: var(--korfont2);
+    font-weight: 600;
+}
+
+#Sec3popup .popup__content .right .content h2 {
+    font-family: var(--engfont);
+}
+
+#Sec3popup .popup__wrap .popup__content .right .content p {
+    font-family: var(--korfont2);
+    font-size: 15px;
+    word-break: keep-all;
+    margin-bottom: 20px;
+}
+
+#Sec3popup .popup__wrap .popup__content .right .content .codeimg {
+    margin: 0 auto;
+    width: 100%;
+    height: 200px;
+    background-image: url(../../img/youtubecode.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#Sec3popup .popup__wrap .popup__content .right .scroll {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../../img//scrolldown.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    animation: shake 1s ease infinite;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}

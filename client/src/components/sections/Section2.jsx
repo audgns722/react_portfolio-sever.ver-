@@ -3,13 +3,12 @@ import Img1 from "../../assets/img/section2bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Mouse from "../utils/Mouse";
-import Detailsec2 from "../detail/Detailsec2";
-import Detail2Comment from "../comment/Detail2Comment";
-import Close from "../utils/Close";
+import Section2Popup from "../popup/Section2Popup";
 
 const Section2 = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   gsap.registerPlugin(ScrollTrigger);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const circleMaskRef = useRef(null);
   const section2Ref = useRef(null);
   const text1Ref = useRef(null);
@@ -32,210 +31,173 @@ const Section2 = () => {
     };
   }, [isPopupOpen]);
 
-  // openPopupAnimaition
-  const PoupAnimation = () => {
-    const tl = gsap.timeline();
+  const PoupAnimation2 = () => {
+    const tl = gsap.timeline({});
 
-    tl.to(
-      ".contents2",
-      {
-        width: "90%",
-        duration: 1,
-        delay: 1,
-      },
-      "<"
-    )
-      .to(
-        ".cont__box>.desc",
-        {
-          display: "none",
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to(
-        ".mouse__cursor",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        ".content__img--1",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        ".hidden__img",
-        {
-          display: "block",
-          zIndex: -1,
-        },
-        "<"
-      )
-      .to(
-        imgRef.current,
-        {
-          width: "50%",
-          left: 0,
-          xPercent: 0,
-          ease: "power2.in",
-          duration: 1,
-        },
-        "<"
-      )
-      .to(imgRef.current, {
-        maxWidth: "640px",
-        duration: 1,
-      })
-      .to(
-        text1Ref.current,
-        {
-          xPercent: 0,
-          ease: "none",
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to(
-        text2Ref.current,
-        {
-          xPercent: -50,
-          ease: "none",
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to(".left__box", {
+
+    tl
+      .set("#section2 .popup__content", {
+        height: "70%",
+        width: "100%",
+        padding: "20px",
         opacity: 1,
+        scale: 1,
+      },)
+      .fromTo("#Sec2popup", {
+        opacity: 0,
+        x: 40,
+      }, {
         display: "block",
-        zIndex: 2,
+        position: "fixed",
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power1.out"
+      }, "<")
+      .fromTo("#section2 .popup__content .left .img", {
+        x: -200,
+        opacity: 0,
+      }, {
+        x: 0,
+        opacity: 1,
+        ease: "power3.out",
+        duration: 1,
       })
-      .fromTo(
-        ".right__box",
-        {
-          opacity: 0.3,
-          right: "0",
-          top: "50%",
-          translateX: "0%",
-          translateY: "-50%",
-          width: "40%",
-        },
-        {
-          opacity: 1,
-          width: "50%",
-          display: "block",
-          position: "absolute",
-          ease: "power1.inOut",
-          height: "100%",
+      .to("#section2 .popup__content .close", {
+        display: "inline-block"
+      }, "<")
+      .to("#section2 .popup__content .right", {
+        opacity: 1,
+      })
+      .from("#section2 .pt1", {
+        x: -400,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .desc1", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .pt2", {
+        x: -200,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .desc2", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .pt3", {
+        x: -200,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .desc3", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .pt4", {
+        x: -300,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .c1", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .pt5", {
+        x: -300,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section2 .c2", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .fromTo("#section2 .popup__content .btn", {
+        y: -35,
+        opacity: 0,
+        zIndex: -1,
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        onComplete: () => {
+          document.querySelector("#section2 .popup__content .btn").style.zIndex = "0";
         }
-      )
-      .to(
-        ".contents2 .close",
-        {
-          display: "block",
-        },
-        "<"
-      )
-      .fromTo(
-        ".comment__result>.comments",
-        {
-          opacity: 0.2,
-          y: -40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: -0.2,
-          duration: 0.3,
-          ease: "bounce.out",
-        },
-        "<"
-      )
-      .fromTo(
-        ".detail__wrap>.details",
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: -0.2,
-          duration: 0.5,
-          ease: "sine.in",
-        },
-        "<"
-      );
+      }, "<")
+      .fromTo("#section2 .popup__content .scroll", {
+        scale: 0,
+        opacity: 0,
+      }, {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+      },)
 
     return tl;
   };
 
-  // ClosePopupAnimaition
-  const ClosePoupAnimation = () => {
+  const ClosePoupAnimation2 = () => {
     const tl = gsap.timeline();
 
-    tl.to(".right__box", {
-      width: "40px",
-      duration: 1,
-      opacity: 0,
-      ease: "expo.out",
-      display: "none",
-    })
-      .to(
-        ".left__box",
-        {
-          opacity: 0,
-          scale: 0.9,
-          ease: "expo.out",
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        ".contents2 .close",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        imgRef.current,
-        {
-          width: "100%",
-          left: "50%",
-          xPercent: -50,
-          ease: "expo.in",
-          duration: 1,
-          maxWidth: "504px",
-        },
-        "<"
-      )
-      .to(".contents2 .desc", {
-        display: "block",
-        opacity: 1,
+    tl
+      .to("#section2 .popup__content .right", {
+        opacity: 0,
+        duration: 0.5,
       })
-      .to(
-        ".mouse__cursor",
-        {
-          display: "block",
-        },
-        "<"
-      )
-      .to(
-        ".hidden__img",
-        {
-          display: "none",
-          zIndex: -1,
-        },
-        "<"
-      )
-      .to(".content__img--1", {
-        display: "block",
-        onComplete: () => {},
-      });
+      .to("#section2 .popup__content .left .img", {
+        opacity: 0,
+        duration: 0.5,
+      }, "<")
+      .to("#section2 .popup__content .btn", {
+        y: -25,
+        zIndex: -1,
+        duration: 0.2,
+        opacity: 0,
+        onComplete: () => {
+          document.querySelector(".popup__content .btn").style.zIndex = "0";
+        }
+      }, "<0.5")
+      .to("#section2 .popup__content .close", {
+        display: "none"
+      }, "<")
+      .to("#section2 .popup__content", {
+        height: "0",
+        padding: "2.5px",
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#section2 .popup__content", {
+        width: "0",
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#section2 .popup__content", {
+        opacity: 0,
+        scale: 0,
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#Sec2popup", {
+        display: "none",
+        position: "static",
+        opacity: 0,
+        duration: 0.5,
+        ease: "expo.out"
+      }, "<")
+      .fromTo("#section2 .contents2", {
+        opacity: 0,
+      }, {
+        opacity: 1,
+        duration: 1,
+        ease: "expo.in"
+      }, "<")
 
     return tl;
   };
@@ -243,22 +205,23 @@ const Section2 = () => {
   const openPopup = () => {
     // 팝업 상태 변경
     setIsPopupOpen(true);
-    // 이미지 교체 애니메이션 실행
-    PoupAnimation();
+    PoupAnimation2();
   };
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    ClosePoupAnimation();
+    ClosePoupAnimation2();
   };
 
+
+  // 스크롤 트리거 애니메이션
   useEffect(() => {
     const maskAnimation = gsap.to(circleMaskRef.current, {
       attr: { r: 820 },
       scrollTrigger: {
         trigger: section2Ref.current,
         start: "top center",
-        end: "bottom bottom", 
+        end: "bottom bottom",
         scrub: 3,
       },
     });
@@ -267,15 +230,15 @@ const Section2 = () => {
       scrollTrigger: {
         trigger: section2Ref.current,
         start: "center center",
-        end: "bottom bottom", 
+        end: "bottom bottom",
         scrub: 1,
       },
     });
 
     gsap.to(text1Ref.current, {
       opacity: 1,
-      left: "0", 
-      top: "0", 
+      left: "0",
+      top: "0",
       scrollTrigger: {
         trigger: section2Ref.current,
         start: "25% center",
@@ -286,8 +249,8 @@ const Section2 = () => {
     });
     gsap.to(text2Ref.current, {
       opacity: 1,
-      right: "0", 
-      bottom: "0", 
+      right: "0",
+      bottom: "0",
       scrollTrigger: {
         trigger: section2Ref.current,
         start: "25% center",
@@ -306,9 +269,7 @@ const Section2 = () => {
   return (
     <section id="section2" ref={section2Ref}>
       <div className="contents2">
-        <Close onClick={closePopup} />
         <div className="cont__box" ref={imgRef}>
-          <Detail2Comment />
           <div className="text1" ref={text1Ref}>
             youtube
           </div>
@@ -319,7 +280,6 @@ const Section2 = () => {
             유튜브 API를 이용하여 좋아하는 다큐멘터리 <br /> 채널과 영상을
             모아봤습니다.
           </div>
-          <div className="hidden__img"></div>
           <svg
             className="content__img content__img--1"
             width="100%"
@@ -364,8 +324,8 @@ const Section2 = () => {
           </svg>
           <Mouse imgRef={imgRef} />
         </div>
-        <Detailsec2 />
       </div>
+      <Section2Popup onClick={closePopup} />
     </section>
   );
 };

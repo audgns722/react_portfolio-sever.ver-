@@ -8,7 +8,7 @@ import Footer from "./components/layout/Footer.jsx";
 
 const App = () => {
   useEffect(() => {
-    // smooth();
+    smooth();
   });
   return (
     <>
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
         </Routes>
       </Main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

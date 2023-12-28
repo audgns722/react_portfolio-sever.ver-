@@ -3,13 +3,12 @@ import Img2 from "../../assets/img/section3bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Mouse from "../utils/Mouse";
-import Close from "../utils/Close";
-import Detail2Comment from "../comment/Detail2Comment";
-import Detailsec3 from "../detail/Detailsec3";
+import Section3Popup from "../popup/Section3Popup";
 
 const Section3 = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   gsap.registerPlugin(ScrollTrigger);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const circleMaskRef = useRef(null);
   const section3Ref = useRef(null);
   const text1Ref = useRef(null);
@@ -32,209 +31,175 @@ const Section3 = () => {
     };
   }, [isPopupOpen]);
 
-  // openPopupAnimaition
-  const PoupAnimation = () => {
+  const PoupAnimation3 = () => {
     const tl = gsap.timeline();
 
-    tl.to(
-      ".contents3",
-      {
-        width: "90%",
-        duration: 1,
-        delay: 1,
-      },
-      "<"
-    )
-      .to(
-        ".cont__box>.desc",
-        {
-          display: "none",
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to(
-        ".mouse__cursor",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        ".content__img--2",
-        {
-          display: "none",
-          zIndex: -2,
-        },
-        "<"
-      )
-      .to(
-        ".hidden__img",
-        {
-          display: "block",
-          zIndex: -1,
-        },
-        "<"
-      )
-      .to(imgRef.current, {
-        width: "50%",
-        height: "100%",
-        left: 0,
-        xPercent: 0,
-        ease: "power2.in",
-        duration: 1,
-      })
-      .to(imgRef.current, {
-        maxWidth: "640px",
-        duration: 1,
-      })
-      .to(
-        text1Ref.current,
-        {
-          xPercent: 0,
-          ease: "none",
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to(
-        text2Ref.current,
-        {
-          xPercent: -50,
-          ease: "none",
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to(".left__box", {
+    tl
+      .set("#section3 .popup__content", {
+        height: "70%",
+        width: "100%",
+        padding: "20px",
         opacity: 1,
+        scale: 1,
+      },)
+      .fromTo("#Sec3popup", {
+        opacity: 0,
+        x: 40,
+      }, {
         display: "block",
-        zIndex: 2,
+        position: "fixed",
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power1.out"
+      }, "<")
+      .fromTo("#section3 .popup__content .left .img", {
+        x: -200,
+        opacity: 0,
+      }, {
+        x: 0,
+        opacity: 1,
+        ease: "power3.out",
+        duration: 1,
       })
-      .fromTo(
-        ".right__box",
-        {
-          opacity: 0.3,
-          right: "0",
-          top: "50%",
-          translateX: "0%",
-          translateY: "-50%",
-          width: "40%",
-        },
-        {
-          opacity: 1,
-          width: "50%",
-          display: "block",
-          position: "absolute",
-          ease: "power1.inOut",
-          height: "100%",
+      .to("#section3 .popup__content .close", {
+        display: "inline-block"
+      }, "<")
+      .to("#section3 .popup__content .right", {
+        opacity: 1,
+      })
+      .from("#section3 .pt1", {
+        x: -400,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .desc1", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .pt2", {
+        x: -200,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .desc2", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .pt3", {
+        x: -200,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .desc3", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .pt4", {
+        x: -300,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .c1", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .pt5", {
+        x: -300,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .from("#section3 .c2", {
+        x: -700,
+        duration: 0.3,
+        ease: "power1.in"
+      }, "<0.1")
+      .fromTo("#section3 .popup__content .btn", {
+        y: -35,
+        opacity: 0,
+        zIndex: -1,
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        onComplete: () => {
+          document.querySelector("#section3 .popup__content .btn").style.zIndex = "0";
         }
-      )
-      .to(
-        ".close",
-        {
-          display: "block",
-        },
-        "<"
-      )
-      .fromTo(
-        ".comment__result>.comments",
-        {
-          opacity: 0.2,
-          y: -40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: -0.2,
-          duration: 0.3,
-          ease: "bounce.out",
-        },
-        "<"
-      )
-      .fromTo(
-        ".detail__wrap>.details",
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: -0.2,
-          duration: 0.5,
-          ease: "sine.in",
-        },
-        "<"
-      );
+      }, "<")
+      .fromTo("#section3 .popup__content .scroll", {
+        scale: 0,
+        opacity: 0,
+      }, {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+      },)
 
     return tl;
   };
 
-  // ClosePopupAnimaition
-  const ClosePoupAnimation = () => {
+  const ClosePoupAnimation3 = () => {
     const tl = gsap.timeline();
 
-    tl.to(".right__box", {
-      width: "40px",
-      duration: 1,
-      opacity: 0,
-      ease: "expo.out",
-      display: "none",
-    })
-      .to(
-        ".left__box",
-        {
-          opacity: 0,
-          scale: 0.9,
-          ease: "expo.out",
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        ".close",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to(
-        imgRef.current,
-        {
-          width: "70%",
-          height: "50%",
-          maxWidth: "1280px",
-          left: "50%",
-          xPercent: -50,
-          ease: "expo.in",
-          duration: 1,
-        },
-        "<"
-      )
-      .to(".contents2 .desc", {
-        display: "block",
-        opacity: 1,
+    tl
+      .to("#section3 .popup__content .right", {
+        opacity: 0,
+        duration: 0.5,
       })
-      .to(
-        ".mouse__cursor",
-        {
-          display: "block",
-        },
-        "<"
-      )
-      .to(
-        ".hidden__img",
-        {
-          display: "none",
-          zIndex: -1,
-        },
-        "<"
-      )
-      .to(".content__img--2", {
-        display: "block",
-        onComplete: () => {},
-      });
+      .to("#section3 .popup__content .left .img", {
+        opacity: 0,
+        duration: 0.5,
+      }, "<")
+
+      .to("#section3 .popup__content .btn", {
+        y: -25,
+        zIndex: -1,
+        duration: 0.2,
+        opacity: 0,
+        onComplete: () => {
+          document.querySelector(".popup__content .btn").style.zIndex = "0";
+        }
+      }, "<0.5")
+      .to("#section3 .popup__content .close", {
+        display: "none"
+      }, "<")
+      .to("#section3 .popup__content", {
+        height: "0",
+        padding: "2.5px",
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#section3 .popup__content", {
+        width: "0",
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#section3 .popup__content", {
+        opacity: 0,
+        scale: 0,
+        duration: 1,
+        ease: "expo.out",
+      })
+      .to("#Sec3popup", {
+        display: "none",
+        position: "static",
+        opacity: 0,
+        duration: 0.5,
+        ease: "expo.out"
+      }, "<")
+      .fromTo("#section3 .contents3", {
+        opacity: 0,
+      }, {
+        opacity: 1,
+        duration: 1,
+        ease: "expo.in"
+      }, "<")
+
+
 
     return tl;
   };
@@ -242,15 +207,16 @@ const Section3 = () => {
   const openPopup = () => {
     // 팝업 상태 변경
     setIsPopupOpen(true);
-    // 이미지 교체 애니메이션 실행
-    PoupAnimation();
+    PoupAnimation3();
   };
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    ClosePoupAnimation();
+    ClosePoupAnimation3();
   };
 
+
+  // 스크롤 트리거 애니메이션
   useEffect(() => {
     const maskAnimation = gsap.to(circleMaskRef.current, {
       attr: { r: 950 },
@@ -304,11 +270,9 @@ const Section3 = () => {
   }, []);
 
   return (
-    <section id="section3">
-      <div className="contents3" ref={section3Ref}>
-        <Close onClick={closePopup} />
+    <section id="section3" ref={section3Ref}>
+      <div className="contents3" >
         <div className="cont__box" ref={imgRef}>
-          <Detail2Comment />
           <div className="text1" ref={text1Ref}>
             react
           </div>
@@ -320,7 +284,6 @@ const Section3 = () => {
             <br />
             블로그 플랫폼을 구축하였습니다.
           </div>
-          <div className="hidden__img"></div>
           <svg
             className="content__img content__img--2"
             width="100%"
@@ -372,8 +335,8 @@ const Section3 = () => {
           </svg>
           <Mouse imgRef={imgRef} />
         </div>
-        <Detailsec3 />
       </div>
+      <Section3Popup onClick={closePopup} />
     </section>
   );
 };

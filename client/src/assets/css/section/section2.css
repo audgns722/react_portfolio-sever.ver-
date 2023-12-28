@@ -23,7 +23,7 @@
   transform: translate(-50%, -50%);
 }
 
-#section2 .hidden__img {
+/* #section2 .hidden__img {
   position: absolute;
   display: none;
   background-image: url(../../img/section2bg.png);
@@ -33,7 +33,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -1;
-}
+} */
 
 #section2 .contents2 .text1 {
   opacity: 0;
