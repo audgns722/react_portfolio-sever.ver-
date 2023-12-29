@@ -17,11 +17,13 @@
 #about .about__top .text {
   border-top: 1px solid #fff;
   width: 100%;
+  font-size: 30px;
   font-family: var(--korfont);
-  padding-top: 10vh;
+  padding-top: 5vh;
   position: sticky;
   top: 0;
 }
+
 #about .about__top .text h1 {
   color: var(--white);
   font-size: 22px;
@@ -29,42 +31,61 @@
   line-height: 1.7;
   word-break: keep-all;
 }
-.profile__wrap {
-  width: 80%;
+
+.about__center {
+  width: 90%;
   height: 200vh;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   display: flex;
+  justify-content: space-between;
 }
-.profile__wrap .profile {
-  max-width: 400px;
-  max-height: 600px;
-  width: 100%;
-  height: 100%;
-  padding-top: 10vh;
-  position: sticky;
-  top: 0;
-}
-.profile__wrap .profile span {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  background-image: url(../../img/profile.png);
+
+.about__center .left {
+  width: 40%;
+  height: 500px;
+  padding-top: 5vh;
   position: sticky;
   top: 0;
 }
 
-.profile__wrap .content {
+.about__center .left .profile {
+  width: 100%;
+  height: 100%;
+
+}
+
+.about__center .left .profile .img {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../img/profile2.png);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+
+.about__center .right {
+  width: 60%;
+  height: 100%;
+  padding: 5vh 0;
+}
+
+.about__center .right .text {
+  text-transform: uppercase;
+  color: var(--white);
+  font-family: var(--section4);
+  font-size: 10vw;
+  display: block;
+  text-align: right;
 }
 
 .lineleft {
   margin-top: 5vh;
-  width: 20%;
-  height: 5px;
+  width: 10%;
+  height: 1px;
   background-color: #7e7e7e;
 }
+
 .lineleft.ln2 {
   background-color: #d6ffb4;
 }

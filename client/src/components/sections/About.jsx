@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/all";
 
 const About = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const profileRef = useRef(null);
 
   useEffect(() => {
     const targets = gsap.utils.toArray(".split");
@@ -17,39 +16,24 @@ const About = () => {
       let chars = splitClient.chars;
 
       gsap.from(chars, {
-        yPercent: -100,
+        y: -5,
+        x: 5,
         opacity: 0,
-        rotation: -50,
         duration: 0.05,
-        ease: "power1",
-        stagger: 0.02,
+        ease: "expo.out",
+        stagger: 0.03,
         scrollTrigger: {
           trigger: ".about__top",
-          start: "top 25%",
-          end: "bottom bottom",
+          start: "top 50%",
+          end: "bottom bottom-=100",
+          scrub: 5,
         },
       });
-
-      // 컴포넌트 언마운트 시 정리
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
     }, []);
 
-    gsap.from(".profile", {
-      xPercent: -200,
-      scale: 0,
-      opacity: 0,
-      rotate: "-180deg",
-      duration: 0.05,
-      scrollTrigger: {
-        trigger: profileRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        markers: true,
-        scrub: 1,
-      },
-    });
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   });
 
   return (
@@ -74,13 +58,32 @@ const About = () => {
           </div>
         </div>
         <div className="lineleft ln1"></div>
-        <div className="profile__wrap" ref={profileRef}>
-          <div className="profile">
-            <span></span>
+        <div className="about__center">
+          <div className="left">
+            <div className="profile">
+              <div className="img"></div>
+            </div>
           </div>
-          <div className="content"></div>
+          <div className="right">
+            <div className="text rt1">
+              Innovative
+            </div>
+            <div className="text rt2">
+              Resourceful
+            </div>
+            <div className="text rt3">
+              Creative
+            </div>
+            <div className="text rt4">
+              Positive
+            </div>
+          </div>
         </div>
         <div className="lineleft ln2"></div>
+        <div className="about__bottom">
+          <div className="left"></div>
+          <div className="right"></div>
+        </div>
       </div>
     </div>
   );

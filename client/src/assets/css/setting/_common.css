@@ -6,12 +6,13 @@ body::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+
 #main {
   display: flex;
   gap: 40vh;
   flex-direction: column;
   position: relative;
-  background-color: var(--bgcolor);
+  background-color: #0f0f0f
 }
 
 #main::before {
@@ -39,18 +40,18 @@ body::-webkit-scrollbar {
   height: 100vh;
   font-family: var(--engfont);
   color: var(--white);
-  background: repeating-linear-gradient(
-    45deg,
-    #000000,
-    #0a0a0a 0.01px,
-    #000000 0.01px,
-    #000000 0.01px
-  );
+  background: repeating-linear-gradient(45deg,
+      #000000,
+      #0a0a0a 0.01px,
+      #000000 0.01px,
+      #000000 0.01px);
   filter: noise(0.1);
 }
+
 #section2 {
   margin-top: 20vh;
 }
+
 .container {
   width: 1280px;
   margin: 0 auto;

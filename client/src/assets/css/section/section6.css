@@ -5,6 +5,7 @@
   align-items: center;
   text-align: right;
 }
+
 #Script .reset {
   padding: 15px;
   font-family: var(--engfont);
@@ -14,6 +15,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
 #Script .reset:hover,
 #Script .reset:active {
   transform: scale(1.1);
@@ -22,16 +24,18 @@
 }
 
 .script__wrap {
-  width: 60%;
+  width: 90%;
   color: var(--white);
   margin: 0 auto;
 }
+
 .script__wrap .title {
   font-size: 1rem;
   font-family: var(--engfont);
   text-align: center;
   text-transform: uppercase;
 }
+
 .script__wrap .title2 {
   font-size: 0.8rem;
   font-family: var(--engfont);
@@ -39,12 +43,14 @@
   text-transform: uppercase;
   opacity: 0.5;
 }
+
 .script__content {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
 }
+
 .script__content .contents {
   width: 32%;
   max-width: 300px;
@@ -53,9 +59,10 @@
   align-items: center;
   flex-direction: column;
 }
+
 .script__content .contents .img {
   border-radius: 15px;
-  background-image: url(../../img/search.gif);
+  background-image: url(../../img/search.png);
   width: 100%;
   min-width: 300px;
   height: 200px;
@@ -64,18 +71,23 @@
   background-repeat: no-repeat;
   transition: all 0.3s ease-in-out;
 }
+
 .script__content .contents .img.i2 {
-  background-image: url(../../img/quiz.gif);
+  background-image: url(../../img/quiz.png);
 }
+
 .script__content .contents .img.i3 {
-  background-image: url(../../img/gsap.gif);
+  background-image: url(../../img/gsap.png);
 }
+
 .script__content .contents .img.i4 {
-  background-image: url(../../img/slider.gif);
+  background-image: url(../../img/slider.png);
 }
+
 .script__content .contents .img.i5 {
-  background-image: url(../../img/mouse.gif);
+  background-image: url(../../img/mouse.png);
 }
+
 .script__content .contents p {
   font-family: var(--engfont);
   font-size: 18px;
@@ -84,6 +96,7 @@
   color: var(--black);
   text-align: center;
 }
+
 .script__content .contents span {
   width: 300px;
   font-size: 14px;
