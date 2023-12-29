@@ -44,7 +44,7 @@ const Intro = () => {
   return (
     <div id="section1">
       <div className="sec1__cont">
-        <h1 style={h1Style}>Hellow My PortFolio</h1>
+        <h1 style={h1Style}>Hello My PortFolio</h1>
         <p>
           Developer <em>MyeongHun</em>
         </p>
