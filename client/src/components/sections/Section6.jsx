@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import React from "react";
 
 const Section6 = () => {

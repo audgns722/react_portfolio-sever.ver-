@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/all";
@@ -11,8 +11,6 @@ const About = () => {
     // gsap 애니메이션 초기화
     targets.forEach((target) => {
       let splitClient = new SplitType(target, { type: "lines, words, chars" });
-      let lines = splitClient.lines;
-      let words = splitClient.words;
       let chars = splitClient.chars;
 
       gsap.from(chars, {
