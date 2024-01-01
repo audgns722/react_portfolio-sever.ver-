@@ -7,7 +7,7 @@ const commentSchema = new mongoose.Schema(
     password: String,
     commentNum: Number,
   },
-  { collection: "comments" }
+  { collection: "comments", timestamps: true }
 ); // collection : 이름
 
 const Comment = mongoose.model("Comment", commentSchema);

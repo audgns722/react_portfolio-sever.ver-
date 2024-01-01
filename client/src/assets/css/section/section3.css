@@ -49,6 +49,8 @@
 }
 
 .contents3 .desc {
+  width: 300px;
+  word-break: keep-all;
   opacity: 0;
   position: absolute;
   text-align: left;
@@ -57,4 +59,11 @@
   font-family: var(--korfont);
   font-weight: 200;
   color: var(--white);
+}
+
+@media (max-width: 1200px) {
+  .contents3 .desc {
+    width: 80%;
+    bottom: -55px;
+  }
 }

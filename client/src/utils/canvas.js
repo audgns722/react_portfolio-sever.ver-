@@ -1,7 +1,7 @@
 export const Canvas = () => {
   let c = document.createElement("canvas").getContext("2d");
   let postctx = document
-    .getElementById("section1")
+    .getElementById("intro")
     .appendChild(document.createElement("canvas"))
     .getContext("2d");
   let canvas = c.canvas;

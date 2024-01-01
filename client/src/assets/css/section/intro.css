@@ -1,12 +1,9 @@
-#section1 {
+#intro {
   width: 100%;
   height: 100vh;
-  position: sticky;
-  top: 0;
-  z-index: -1;
 }
 
-.sec1__cont {
+.intro {
   width: 100%;
   height: 85vh;
   display: flex;
@@ -16,21 +13,27 @@
   text-align: center;
 }
 
-.sec1__cont h1 {
+.intro h1 {
   font-size: 6.25vw;
   font-family: var(--section2);
   font-weight: 300;
   color: var(--title-color);
 }
 
-.sec1__cont p {
+@media (max-width: 800px) {
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.intro p {
   font-family: var(--minifont);
   font-size: 20px;
   font-weight: 200;
   color: var(--white);
 }
 
-.sec1__cont em {
+.intro em {
   font-weight: 300;
 }
 
@@ -44,7 +47,7 @@
 }
 
 .scroll__down span {
-  font-family: "NanumSquareNeo";
+  font-family: var(--korfont);
   color: #5a5a5a;
 }
 

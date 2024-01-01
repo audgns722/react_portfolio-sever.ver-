@@ -1,0 +1,112 @@
+#script {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh 0;
+  z-index: 1;
+  position: relative;
+}
+
+.script__wrap {
+  color: var(--white);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.script__wrap .title {
+  font-size: 24px;
+  line-height: 1;
+  font-family: var(--minifont);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.script__wrap .title2 {
+  font-family: var(--minifont);
+  text-align: center;
+  opacity: 0.5;
+  margin-bottom: 30px;
+}
+
+.script__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.script__content .contents {
+  width: 250px;
+}
+
+.script__content .contents .img {
+  border-radius: 15px;
+  background-image: url(../../img/search.png);
+  height: 150px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+}
+
+.script__content .contents .i1:hover {
+  background-image: url(../../img/search.gif);
+  opacity: 0.5;
+}
+.script__content .contents .i2:hover {
+  background-image: url(../../img/quiz.gif) !important;
+  opacity: 0.5;
+}
+.script__content .contents .i3:hover {
+  background-image: url(../../img/gsap.gif) !important;
+  opacity: 0.5;
+}
+.script__content .contents .i4:hover {
+  background-image: url(../../img/slider.gif) !important;
+  opacity: 0.5;
+}
+.script__content .contents .i5:hover {
+  background-image: url(../../img/mouse.gif) !important;
+  opacity: 0.5;
+}
+
+.script__content .contents .img.i2 {
+  background-image: url(../../img/quiz.png);
+}
+
+.script__content .contents .img.i3 {
+  background-image: url(../../img/gsap.png);
+}
+
+.script__content .contents .img.i4 {
+  background-image: url(../../img/slider.png);
+}
+
+.script__content .contents .img.i5 {
+  background-image: url(../../img/mouse.png);
+}
+
+.script__content .contents p {
+  padding: 5px 0;
+  font-family: var(--minifont);
+  font-size: 16px;
+  margin-top: 15px;
+  line-height: 1;
+  color: var(--black);
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 15px 15px 0 0;
+}
+
+.script__content .contents span {
+  display: inline-block;
+  font-size: 14px;
+  font-family: var(--korfont);
+  text-align: left;
+  color: rgb(209, 209, 209);
+  margin-top: 20px;
+  word-break: break-all;
+}

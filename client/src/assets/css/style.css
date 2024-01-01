@@ -6,24 +6,20 @@
 @import "./setting/_reset.css";
 @import "./setting/_common.css";
 
-/* section */
 @import "./section/intro.css";
+
+/* section */
 @import "./section/section2.css";
 @import "./section/section3.css";
 @import "./section/section4.css";
 @import "./section/section5.css";
 @import "./section/section6.css";
-@import "./section/about.css";
-/* @import "./section/contact.css"; */
+@import "./section/script.css";
+@import "./section/contact.css";
 
 /* popup */
 @import "./popup/Sec2pop.css";
 @import "./popup/Sec3pop.css";
 @import "./popup/Sec4pop.css";
 @import "./popup/Sec5pop.css";
-
-/* deatail_section */
-/* @import "./detail_section/detail2.css";
-@import "./detail_section/detail3.css"; */
-/* @import "./detail_section/detail4.css";
-@import "./detail_section/detail5.css"; */
+@import "./popup/Sec6pop.css";

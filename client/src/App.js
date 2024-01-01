@@ -5,8 +5,8 @@ import { smooth } from "./utils/smooth";
 
 import Main from "./components/layout/Main.jsx";
 import Footer from "./components/layout/Footer.jsx";
-import Intro from "./components/layout/Intro.jsx";
-import Section2Popup from "./components/popup/Section2Popup.jsx";
+import Intro from "./components/sections/Intro.jsx";
+import Contact from "./components/sections/Contact.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -18,9 +18,9 @@ const App = () => {
       <Main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pop" element={<Section2Popup />} />
         </Routes>
       </Main>
+      <Contact />
       <Footer />
     </>
   );

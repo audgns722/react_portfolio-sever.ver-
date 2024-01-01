@@ -19,6 +19,10 @@ npm i gsap
 npm i react-router-dom
 npm i @studio-freight/lenis
 npm install gsap split-type
+npm install react-icons --save
+npm install moment --save
+npm install react-highlight --save
+npm install highlight.js
 
 ```
 
@@ -28,10 +32,10 @@ npm install gsap split-type
 
 ## 트러블 슈팅
 
-<details>
-<summary></summary>
+    <details>
+    <summary></summary>
 
-- ####
+    - ####
 
-</details>
+    </details>
 https://tympanus.net/Development/OnScrollFilter/

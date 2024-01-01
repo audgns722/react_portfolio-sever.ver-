@@ -12,7 +12,7 @@ const Section4 = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const pathMaskRef = useRef(null);
   const section4Ref = useRef(null);
-  const text1Ref = useRef(null); 
+  const text1Ref = useRef(null);
   const text2Ref = useRef(null);
   const imgRef = useRef(null);
 
@@ -35,110 +35,129 @@ const Section4 = () => {
   const PoupAnimation4 = () => {
     const tl = gsap.timeline();
 
-    tl
-      .set("#section4 .popup__content", {
-        height: "70%",
-        width: "100%",
-        padding: "20px",
-        opacity: 1,
-        scale: 1,
-      },)
-      .fromTo("#Sec4popup", {
-        opacity: 0,
-        x: 40,
-      }, {
-        display: "block",
-        position: "fixed",
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power1.out"
-      }, "<")
-      .fromTo("#section4 .popup__content .left .img", {
-        x: -200,
-        opacity: 0,
-      }, {
-        x: 0,
-        opacity: 1,
-        ease: "power3.out",
-        duration: 1,
-      })
-      .to("#section4 .popup__content .close", {
-        display: "inline-block"
-      }, "<")
-      .to("#section4 .popup__content .right", {
-        opacity: 1,
-      })
-      .from("#section4 .pt1", {
-        x: -400,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .desc1", {
-        x: -700,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .pt2", {
-        x: -200,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .desc2", {
-        x: -700,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .pt3", {
-        x: -200,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .desc3", {
-        x: -700,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .pt4", {
-        x: -300,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .c1", {
-        x: -700,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .pt5", {
-        x: -300,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .from("#section4 .c2", {
-        x: -700,
-        duration: 0.3,
-        ease: "power1.in"
-      }, "<0.1")
-      .fromTo("#section4 .popup__content .btn", {
-        y: -35,
-        opacity: 0,
-        zIndex: -1,
-      }, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        onComplete: () => {
-          document.querySelector("#section4 .popup__content .btn").style.zIndex = "0";
+    // 미디어 쿼리 설정
+    const mediaQuery = window.matchMedia("(max-width: 1200px)");
+    let popupWidth = mediaQuery.matches ? "95%" : "80%";
+
+    // 미디어 쿼리에 대한 이벤트 리스너 추가
+    const updatePopupWidth = (e) => {
+      popupWidth = e.matches ? "95%" : "80%";
+    };
+
+    mediaQuery.addListener(updatePopupWidth);
+    tl.to("#sec4popup", {
+      display: "flex",
+      opacity: 1,
+    })
+      .fromTo(
+        "#sec4popup .popup__wrap",
+        {
+          width: "0%",
+          height: 0,
+          opacity: 0,
+        },
+        {
+          opacity: 0.5,
+          height: 1,
+          width: popupWidth,
+          ease: "power3.out",
         }
-      }, "<")
-      .fromTo("#section4 .popup__content .scroll", {
-        scale: 0,
-        opacity: 0,
-      }, {
-        scale: 1,
-        opacity: 1,
-        duration: 1,
-      },)
+      )
+      .to(
+        "#sec4popup .popup__wrap",
+        {
+          opacity: 1,
+          height: "80vh",
+          ease: "power3.out",
+        },
+        "<0.3"
+      )
+      .fromTo(
+        "#sec4popup .close",
+        {
+          opacity: 0,
+          y: -30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+        }
+      )
+      .fromTo(
+        "#sec4popup .left",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec4popup .right",
+        {
+          opacity: 0,
+          y: -50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      )
+      .fromTo(
+        "#sec4popup .right h2",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=1"
+      )
+      .fromTo(
+        "#sec4popup .right h3",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec4popup .javascript",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        },
+        ">"
+      )
+      .fromTo(
+        "#sec4popup .right p",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        }
+      );
 
     return tl;
   };
@@ -146,62 +165,58 @@ const Section4 = () => {
   const ClosePoupAnimation4 = () => {
     const tl = gsap.timeline();
 
-    tl
-      .to("#section4 .popup__content .right", {
-        opacity: 0,
-        duration: 0.5,
-      })
-      .to("#section4 .popup__content .left .img", {
-        opacity: 0,
-        duration: 0.5,
-      }, "<")
-
-      .to("#section4 .popup__content .btn", {
-        y: -25,
-        zIndex: -1,
-        duration: 0.2,
-        opacity: 0,
-        onComplete: () => {
-          document.querySelector(".popup__content .btn").style.zIndex = "0";
-        }
-      }, "<0.5")
-      .to("#section4 .popup__content .close", {
-        display: "none"
-      }, "<")
-      .to("#section4 .popup__content", {
-        height: "0",
-        padding: "2.5px",
-        duration: 1,
-        ease: "expo.out",
-      })
-      .to("#section4 .popup__content", {
-        width: "0",
-        duration: 1,
-        ease: "expo.out",
-      })
-      .to("#section4 .popup__content", {
-        opacity: 0,
-        scale: 0,
-        duration: 1,
-        ease: "expo.out",
-      })
-      .to("#Sec4popup", {
-        display: "none",
-        position: "static",
-        opacity: 0,
-        duration: 0.5,
-        ease: "expo.out"
-      }, "<")
-      .fromTo("#section4 .contents4", {
-        opacity: 0,
-      }, {
+    tl.fromTo(
+      "#sec4popup .right",
+      {
         opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: -20,
+        ease: "power3.out",
+      }
+    )
+      .fromTo(
+        "#sec4popup .left",
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec4popup .close",
+        {
+          opacity: 1,
+          y: 0,
+        },
+        {
+          opacity: 0,
+          y: -50,
+        },
+        "<"
+      )
+      .to(
+        "#sec4popup .popup__wrap",
+        {
+          height: "1",
+          ease: "power3.out",
+        },
+        "<0.5"
+      )
+      .to("#sec4popup .popup__wrap", {
+        width: "1",
+        opacity: 0,
+        ease: "power3.out",
+      })
+      .to("#sec4popup", {
+        display: "none",
+        opacity: 0,
         duration: 1,
-        ease: "expo.in"
-      }, "<")
-
-
-
+      });
     return tl;
   };
 
@@ -220,44 +235,44 @@ const Section4 = () => {
   useEffect(() => {
     const pathAnimation = gsap.to(pathMaskRef.current, {
       attr: { d: "M 0 280 Q 500 800 1000 280 Q 500 -200 0 280" },
+      duration: 1,
       scrollTrigger: {
-        trigger: section4Ref.current,
+        trigger: imgRef.current,
         start: "top center",
         end: "bottom bottom",
-        scrub: 1,
       },
     });
     gsap.to(".contents4 .desc", {
       opacity: 0.5,
+      duration: 1,
       scrollTrigger: {
-        trigger: section4Ref.current,
+        trigger: imgRef.current,
         start: "center center",
         end: "bottom bottom",
-        scrub: 1,
       },
     });
 
     gsap.to(text1Ref.current, {
       opacity: 1,
       left: "0",
+      duration: 1,
       scrollTrigger: {
-        trigger: section4Ref.current,
+        trigger: imgRef.current,
         start: "25% center",
         end: "bottom bottom",
-        ease: "none",
-        scrub: true,
+        ease: "ease in",
       },
     });
 
     gsap.to(text2Ref.current, {
       opacity: 1,
       right: "0",
+      duration: 1,
       scrollTrigger: {
-        trigger: section4Ref.current,
+        trigger: imgRef.current,
         start: "25% center",
         end: "bottom bottom",
-        scrub: true,
-        ease: "none",
+        ease: "ease in",
       },
     });
 
@@ -278,9 +293,8 @@ const Section4 = () => {
             Api Site
           </div>
           <div className="desc">
-            MovieKing은 Vue.js와 영화Api를 활용해
-            <br />
-            영화 정보를 쉽게 찾을수 있는 웹 플랫폼입니다.
+            MovieKing은 Vue.js와 영화Api를 활용해 영화 정보를 쉽게 찾을수 있는
+            웹 플랫폼입니다.
           </div>
           <svg
             className="content__img content__img--3"

@@ -1,19 +1,12 @@
 :root {
-  /* --title-font: "Sedgwick Ave";
-  --title-font2: "Splash";
-  --title-font3: "Romanesco";
-  --title-font4: "Permanent Marker"; */
-
   --section2: "PP Rader";
   --section3: "PP Pangaia Bold Italic";
   --section4: "PP Right Didone Compact Dark";
   --section5: "PP Neue World Extended";
 
   --minifont: "Poppins", sans-serif;
-  --korfont: "Chosunilbo_myungjo";
-  --korfont2: "NanumSquareNeo";
-  --subfont: "Racing Sans One";
-  --engfont: "GmarketSansMedium";
+  --korfont: "nanumSquareNeo";
+  --engfont: "gmarket";
 
   --title-color: #e93f33;
   --title-color2: #868686;
@@ -21,13 +14,10 @@
   --red: #ce0000;
   --navy: #121931;
   --gray: #b8bac1;
-
   --black: #000;
-
   --white: #fff;
 
   /* 폰트 셋팅 */
-  font-family: var(--font-noto), var(--font-gmarket);
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;

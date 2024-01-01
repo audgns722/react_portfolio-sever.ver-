@@ -75,7 +75,6 @@ app.post("/api/list", (req, res) => {
     });
 });
 
-
 // 댓글 삭제하기
 app.post("/api/delete", (req, res) => {
   const { commentNum, password } = req.body;
@@ -83,7 +82,9 @@ app.post("/api/delete", (req, res) => {
   Comment.findOne({ commentNum })
     .then((comment) => {
       if (!comment) {
-        return res.status(404).json({ success: false, message: "댓글을 찾을 수 없습니다." });
+        return res
+          .status(404)
+          .json({ success: false, message: "댓글을 찾을 수 없습니다." });
       }
 
       // 비밀번호 비교

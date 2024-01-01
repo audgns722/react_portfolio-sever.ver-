@@ -14,7 +14,7 @@
 #section4 .contents4 .cont__box {
   position: relative;
   max-width: 855px;
-  width: 100%;
+  width: 80%;
 }
 
 #section4 .contents4 .text1 {
@@ -50,4 +50,11 @@
   font-family: "NanumSquareNeo";
   font-weight: 200;
   color: var(--white);
+  word-break: keep-all;
+}
+
+@media (max-width: 1200px) {
+  .contents4 .desc {
+    width: 100%;
+  }
 }

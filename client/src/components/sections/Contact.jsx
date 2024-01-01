@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import moment from "moment";
+import "moment/locale/ko";
 
 const Contact = () => {
   const [author, setAuthor] = useState("");
@@ -8,9 +10,8 @@ const Contact = () => {
   const [deletePasswords, setDeletePasswords] = useState({});
   const [content, setContent] = useState("");
   const [commentList, setCommentList] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(3);
+  const [itemsPerPage] = useState(7);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -100,38 +101,37 @@ const Contact = () => {
   return (
     <div id="contact">
       <div className="contact__me">
-        <div className="left">
-          <div className="title">Comment</div>
-
-          <form>
-            <fieldset style={{ border: "none" }}>
-              <legend className="blind">댓글 영역</legend>
-              <div className="comment__top">
-                <input
-                  type="text"
-                  id="author"
-                  name="author"
-                  autoComplete="off"
-                  required
-                  value={author}
-                  onChange={(e) => {
-                    setAuthor(e.currentTarget.value);
-                  }}
-                  placeholder="Write your name"
-                />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  autoComplete="off"
-                  required
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.currentTarget.value);
-                  }}
-                  placeholder="Write your password"
-                />
-              </div>
+        <div className="title">Comment</div>
+        <form>
+          <fieldset style={{ border: "none" }}>
+            <legend className="blind">댓글 영역</legend>
+            <div className="comment__top">
+              <input
+                type="text"
+                id="author"
+                name="author"
+                autoComplete="off"
+                required
+                value={author}
+                onChange={(e) => {
+                  setAuthor(e.currentTarget.value);
+                }}
+                placeholder="Write your name"
+              />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autoComplete="off"
+                required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.currentTarget.value);
+                }}
+                placeholder="Write your password"
+              />
+            </div>
+            <div className="comment__bottom">
               <input
                 type="text"
                 name="comment"
@@ -153,14 +153,19 @@ const Contact = () => {
               >
                 GO
               </button>
-            </fieldset>
-          </form>
+            </div>
+          </fieldset>
+        </form>
 
-          <div className="comment__result">
-            {currentItems.map((comment, key) => (
-              <div className="comments" key={key}>
+        <div className="comment__result">
+          {currentItems.map((comment, key) => (
+            <div className="comments" key={key}>
+              <div className="left">
                 <p className="text">{comment.content}</p>
+              </div>
+              <div className="right">
                 <p className="author">{comment.author}</p>
+                <div>{moment(comment.createdAt).format("YYYY-MM-DD")}</div>
                 <div className="delete">
                   <form
                     onSubmit={(e) => {
@@ -187,40 +192,10 @@ const Contact = () => {
                   </form>
                 </div>
               </div>
-            ))}
-          </div>
-          <ul className="page_numbers">{renderPageNumbers}</ul>
+            </div>
+          ))}
         </div>
-        <div className="right">
-          <div className="title">Contact</div>
-          <div id="contactme">
-            <form className="mailform" id="mailform">
-              <p className="email">
-                <input
-                  name="email"
-                  type="text"
-                  placeholder="Email"
-                  autoComplete="off"
-                />
-              </p>
-              <p className="text">
-                <textarea
-                  name="text"
-                  id="mailcontent"
-                  placeholder="Please Message here!"
-                ></textarea>
-              </p>
-              <div className="submit">
-                <input
-                  type="submit"
-                  value="SEND"
-                  id="button"
-                  autoComplete="off"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+        <ul className="page_numbers">{renderPageNumbers}</ul>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 body {
-  background: var(--bgcolor);
 }
 
 body::-webkit-scrollbar {
@@ -8,48 +7,69 @@ body::-webkit-scrollbar {
 }
 
 #main {
-  display: flex;
-  gap: 40vh;
-  flex-direction: column;
   position: relative;
-  background-color: #0f0f0f
+  background-color: var(--bgcolor);
+}
+#section2 {
+  margin-top: 0;
+  padding-top: 40vh;
+}
+section {
+  margin-top: 20vh;
 }
 
-#main::before {
+/* #main::before {
   position: absolute;
   content: "";
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
   background-image: url(https://i.ibb.co/x3TCktM/645cbb8ec449398255b76326-noise.gif);
   background-position: 0 0;
   background-size: auto;
   pointer-events: none;
-  opacity: 0.02;
+  opacity: 0.005;
   transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   visibility: visible;
-}
+} */
 
 #footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100vh;
+  background-color: var(--bgcolor);
   font-family: var(--engfont);
   color: var(--white);
-  background: repeating-linear-gradient(45deg,
-      #000000,
-      #0a0a0a 0.01px,
-      #000000 0.01px,
-      #000000 0.01px);
-  filter: noise(0.1);
+  position: relative;
 }
 
-#section2 {
-  margin-top: 20vh;
+#footer a {
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s;
+}
+#footer a:hover svg {
+  fill: #000;
+  background-color: #fff;
+  border-radius: 5px;
+}
+#footer a svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 
 .container {
@@ -77,6 +97,13 @@ canvas {
   border-radius: 50%;
 }
 
+@media (max-width: 800px) {
+  .mouse__cursor {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
 .cursor2 {
   width: 100%;
   height: 100%;
@@ -96,4 +123,30 @@ canvas {
   justify-content: center;
   font-size: 12px;
   font-family: var(--section1);
+}
+@media (max-width: 800px) {
+  .cursor-label {
+    font-size: 7px;
+    font-weight: 700;
+  }
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

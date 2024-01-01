@@ -34,171 +34,127 @@ const Section5 = () => {
   const PoupAnimation5 = () => {
     const tl = gsap.timeline();
 
-    tl.set("#section5 .popup__content", {
-      height: "70%",
-      width: "100%",
-      padding: "20px",
+    // 미디어 쿼리 설정
+    const mediaQuery = window.matchMedia("(max-width: 1200px)");
+    let popupWidth = mediaQuery.matches ? "95%" : "80%";
+
+    // 미디어 쿼리에 대한 이벤트 리스너 추가
+    const updatePopupWidth = (e) => {
+      popupWidth = e.matches ? "95%" : "80%";
+    };
+
+    mediaQuery.addListener(updatePopupWidth);
+    tl.to("#sec5popup", {
+      display: "flex",
       opacity: 1,
-      scale: 1,
     })
       .fromTo(
-        "#Sec5popup",
+        "#sec5popup .popup__wrap",
         {
-          opacity: 0,
-          x: 40,
-        },
-        {
-          display: "block",
-          position: "fixed",
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .fromTo(
-        "#section5 .popup__content .left .img",
-        {
-          x: -200,
+          width: "0%",
+          height: 0,
           opacity: 0,
         },
         {
-          x: 0,
-          opacity: 1,
+          opacity: 0.5,
+          height: 1,
+          width: popupWidth,
           ease: "power3.out",
-          duration: 1,
         }
       )
       .to(
-        "#section5 .popup__content .close",
+        "#sec5popup .popup__wrap",
         {
-          display: "inline-block",
+          opacity: 1,
+          height: "80vh",
+          ease: "power3.out",
         },
-        "<"
-      )
-      .to("#section5 .popup__content .right", {
-        opacity: 1,
-      })
-      .from(
-        "#section5 .pt1",
-        {
-          x: -400,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .desc1",
-        {
-          x: -700,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .pt2",
-        {
-          x: -200,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .desc2",
-        {
-          x: -700,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .pt3",
-        {
-          x: -200,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .desc3",
-        {
-          x: -700,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .pt4",
-        {
-          x: -300,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .c1",
-        {
-          x: -700,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .pt5",
-        {
-          x: -300,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
-      )
-      .from(
-        "#section5 .c2",
-        {
-          x: -700,
-          duration: 0.3,
-          ease: "power1.in",
-        },
-        "<0.1"
+        "<0.3"
       )
       .fromTo(
-        "#section5 .popup__content .btn",
+        "#sec5popup .close",
         {
-          y: -35,
           opacity: 0,
-          zIndex: -1,
+          y: -30,
         },
         {
+          opacity: 1,
           y: 0,
-          opacity: 1,
-          duration: 0.5,
-          onComplete: () => {
-            document.querySelector(
-              "#section5 .popup__content .btn"
-            ).style.zIndex = "0";
-          },
-        },
-        "<"
+        }
       )
       .fromTo(
-        "#section5 .popup__content .scroll",
+        "#sec5popup .left",
         {
-          scale: 0,
+          y: 50,
           opacity: 0,
         },
         {
-          scale: 1,
           opacity: 1,
-          duration: 1,
+          y: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec5popup .right",
+        {
+          opacity: 0,
+          y: -50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      )
+      .fromTo(
+        "#sec5popup .right h2",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=1"
+      )
+      .fromTo(
+        "#sec5popup .right h3",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec5popup .javascript",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        },
+        ">"
+      )
+      .fromTo(
+        "#sec5popup .right p",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
         }
       );
 
@@ -208,80 +164,57 @@ const Section5 = () => {
   const ClosePoupAnimation5 = () => {
     const tl = gsap.timeline();
 
-    tl.to("#section5 .popup__content .right", {
-      opacity: 0,
-      duration: 0.5,
-    })
-      .to(
-        "#section5 .popup__content .left .img",
+    tl.fromTo(
+      "#sec5popup .right",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: -20,
+        ease: "power3.out",
+      }
+    )
+      .fromTo(
+        "#sec5popup .left",
         {
-          opacity: 0,
-          duration: 0.5,
+          opacity: 1,
         },
-        "<"
-      )
-
-      .to(
-        "#section5 .popup__content .btn",
         {
-          y: -25,
-          zIndex: -1,
-          duration: 0.2,
           opacity: 0,
-          onComplete: () => {
-            document.querySelector(".popup__content .btn").style.zIndex = "0";
-          },
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec5popup .close",
+        {
+          opacity: 1,
+          y: 0,
+        },
+        {
+          opacity: 0,
+          y: -50,
+        }
+      )
+      .to(
+        "#sec5popup .popup__wrap",
+        {
+          height: "1",
+          ease: "power3.out",
         },
         "<0.5"
       )
-      .to(
-        "#section5 .popup__content .close",
-        {
-          display: "none",
-        },
-        "<"
-      )
-      .to("#section5 .popup__content", {
-        height: "0",
-        padding: "2.5px",
-        duration: 1,
-        ease: "expo.out",
-      })
-      .to("#section5 .popup__content", {
-        width: "0",
-        duration: 1,
-        ease: "expo.out",
-      })
-      .to("#section5 .popup__content", {
+      .to("#sec5popup .popup__wrap", {
+        width: "1",
         opacity: 0,
-        scale: 0,
-        duration: 1,
-        ease: "expo.out",
+        ease: "power3.out",
       })
-      .to(
-        "#Sec5popup",
-        {
-          display: "none",
-          position: "static",
-          opacity: 0,
-          duration: 0.5,
-          ease: "expo.out",
-        },
-        "<"
-      )
-      .fromTo(
-        "#section5 .contents5",
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 1,
-          ease: "expo.in",
-        },
-        "<"
-      );
-
+      .to("#sec5popup", {
+        display: "none",
+        opacity: 0,
+        duration: 1,
+      });
     return tl;
   };
 
@@ -300,46 +233,46 @@ const Section5 = () => {
   useEffect(() => {
     const maskAnimation = gsap.to(circleMask5Ref.current, {
       attr: { r: 1000 },
+      duration: 1.5,
       scrollTrigger: {
-        trigger: section5Ref.current,
+        trigger: imgRef.current,
         start: "top center",
         end: "bottom bottom",
-        scrub: 1,
       },
     });
 
     gsap.to(".contents5 .desc", {
       opacity: 0.5,
-      y: "17vh",
+      y: 120,
+      duration: 1,
       scrollTrigger: {
-        trigger: section5Ref.current,
+        trigger: imgRef.current,
         start: "center center",
         end: "bottom bottom",
-        scrub: 1,
       },
     });
 
     gsap.to(text1Ref.current, {
       opacity: 1,
-      top: "0", // 상단으로 이동
+      top: "0",
+      duration: 1,
       scrollTrigger: {
-        trigger: section5Ref.current,
+        trigger: imgRef.current,
         start: "25% center",
         end: "bottom bottom",
-        ease: "none",
-        scrub: true,
+        ease: "ease in",
       },
     });
 
     gsap.to(text2Ref.current, {
       opacity: 1,
-      bottom: "0", // 하단으로 이동
+      bottom: "0",
+      duration: 1,
       scrollTrigger: {
-        trigger: section5Ref.current,
+        trigger: imgRef.current,
         start: "25% center",
         end: "bottom bottom",
-        scrub: true,
-        ease: "none",
+        ease: "ease in",
       },
     });
 
@@ -360,9 +293,8 @@ const Section5 = () => {
             Php
           </div>
           <div className="desc">
-            일상 생활 속에서 발생하는 잘못된 분리배출을
-            <br /> 알려주고, 간편한 검색을 통해 올바른 배출
-            <br /> 방법을 안내하는 웹사이트입니다.
+            일상 생활 속에서 발생하는 잘못된 분리배출을 알려주고, 간편한 검색을
+            통해 올바른 배출 방법을 안내하는 웹사이트입니다.
           </div>
           <svg
             className="content__img content__img--5"

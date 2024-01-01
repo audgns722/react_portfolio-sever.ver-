@@ -1,63 +1,349 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Img6 from "../../assets/img/section6bg.png";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import Mouse from "../utils/Mouse";
+import Section6Popup from "../popup/Section6Popup";
 
 const Section6 = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const circleMaskRef3 = useRef(null);
+  const section6Ref = useRef(null);
+  const text1Ref = useRef(null);
+  const text2Ref = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    // 스크롤 제어 함수
+    const toggleScroll = (isPopupOpen) => {
+      if (isPopupOpen) {
+        document.body.style.overflow = "hidden"; // 스크롤 막기
+      } else {
+        document.body.style.overflow = "unset"; // 스크롤 허용
+      }
+    };
+    toggleScroll(isPopupOpen);
+
+    return () => {
+      toggleScroll(false);
+    };
+  }, [isPopupOpen]);
+
+  const PoupAnimation2 = () => {
+    const tl = gsap.timeline();
+
+    // 미디어 쿼리 설정
+    const mediaQuery = window.matchMedia("(max-width: 1200px)");
+    let popupWidth = mediaQuery.matches ? "95%" : "80%";
+
+    // 미디어 쿼리에 대한 이벤트 리스너 추가
+    const updatePopupWidth = (e) => {
+      popupWidth = e.matches ? "95%" : "80%";
+    };
+
+    mediaQuery.addListener(updatePopupWidth);
+
+    tl.to("#sec6popup", {
+      display: "flex",
+      opacity: 1,
+    })
+      .fromTo(
+        "#sec6popup .popup__wrap",
+        {
+          width: "0%",
+          height: 0,
+          opacity: 0,
+        },
+        {
+          opacity: 0.5,
+          height: 1,
+          width: popupWidth,
+          ease: "power3.out",
+        }
+      )
+      .to(
+        "#sec6popup .popup__wrap",
+        {
+          opacity: 1,
+          height: "80vh",
+          ease: "power3.out",
+        },
+        "<0.3"
+      )
+      .fromTo(
+        "#sec6popup .close",
+        {
+          opacity: 0,
+          y: -30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+        }
+      )
+      .fromTo(
+        "#sec6popup .left",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec6popup .right",
+        {
+          opacity: 0,
+          y: -50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      )
+      .fromTo(
+        "#sec6popup .right h2",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        },
+        "-=1"
+      )
+      .fromTo(
+        "#sec6popup .right h3",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec6popup .javascript",
+        {
+          opacity: 0,
+          x: 30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          ease: "power3.out",
+        },
+        ">"
+      )
+      .fromTo(
+        "#sec6popup .right p",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+        }
+      );
+
+    return tl;
+  };
+
+  const ClosePoupAnimation2 = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      "#sec6popup .right",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: -20,
+        ease: "power3.out",
+      }
+    )
+      .fromTo(
+        "#sec6popup .left",
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          ease: "power3.out",
+        }
+      )
+      .fromTo(
+        "#sec6popup .close",
+        {
+          opacity: 1,
+          y: 0,
+        },
+        {
+          opacity: 0,
+          y: -50,
+        },
+        "<"
+      )
+      .to(
+        "#sec6popup .popup__wrap",
+        {
+          height: "1",
+          ease: "power3.out",
+        },
+        "<0.5"
+      )
+      .to("#sec6popup .popup__wrap", {
+        width: "1",
+        opacity: 0,
+        ease: "power3.out",
+      })
+      .to("#sec6popup", {
+        display: "none",
+        opacity: 0,
+        duration: 1,
+      });
+    return tl;
+  };
+
+  const openPopup = () => {
+    // 팝업 상태 변경
+    setIsPopupOpen(true);
+    PoupAnimation2();
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    ClosePoupAnimation2();
+  };
+
+  // 스크롤 트리거 애니메이션
+  useEffect(() => {
+    const maskAnimation = gsap.to(circleMaskRef3.current, {
+      attr: { r: 820 },
+      duration: 3,
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "top center",
+        end: "bottom bottom",
+      },
+    });
+    gsap.to(".contents6 .desc", {
+      opacity: 0.5,
+      duration: 1,
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "center center",
+        end: "bottom bottom",
+      },
+    });
+
+    gsap.to(text1Ref.current, {
+      opacity: 1,
+      left: "0",
+      top: "0",
+      duration: 1,
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "25% center",
+        end: "bottom bottom",
+        ease: "ease in",
+      },
+    });
+    gsap.to(text2Ref.current, {
+      opacity: 1,
+      right: "0",
+      bottom: "0",
+      duration: 1,
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "25% center",
+        end: "bottom bottom",
+        ease: "ease in",
+      },
+    });
+
+    return () => {
+      maskAnimation.kill();
+      ScrollTrigger.getById("section6-trigger")?.kill();
+    };
+  }, []);
 
   return (
-    <div id="Script">
-      <div className="script__wrap">
-        <div className="title">Introducing My JavaScript</div>
-        <div className="script__content">
-          <div className="contents im1">
-            <div className="img i1">
-              <p>SEARCH</p>
-            </div>
-            <span>
-              동적으로 CSS 속성 목록을 필터링하여 CSS 속성을 쉽게 찾고 탐색할
-              수 있는 인터페이스를 제공합니다.
-            </span>
+    <section id="section6" ref={section6Ref}>
+      <div className="contents6">
+        <div className="cont__box" ref={imgRef}>
+          <div className="text1" ref={text1Ref}>
+            Kickoff
           </div>
-          <div className="contents im2">
-            <div className="img i2">
-              <p>QUIZ</p>
-            </div>
-
-            <span>
-              다양한 유형의 퀴즈 제공하며, 특히 JSON파일을 불러와 체점
-              및점수를 계산하는 기능을 제공합니다.
-            </span>
+          <div className="text2" ref={text2Ref}>
+            React
           </div>
-          <div className="contents im3">
-            <div className="img i3">
-              <p>GSAP</p>
-            </div>
-            <span>
-              애니메이션 효과, PIN, 배경 고정, 이질감, 나타나기, 텍스트,
-              배경색 전환, Progress bar 메뉴 효과, 가로스크롤 등을 정리한
-              사이트입니다.
-            </span>
+          <div className="desc">
+            리엑트로 축구api를 이용하여 해외축구 하이라이트와 리그 경기일정 등을
+            보여주는 웹사이트 입니다.
           </div>
-          <div className="contents im4">
-            <div className="img i4">
-              <p>SLIDER</p>
-            </div>
-            <span>
-              이미지 슬라이더를 자동으로 순환시키는 기능을 구현하며, jQuery를
-              사용하여 슬라이더의 위치와 스타일을 동적으로 조정합니다.
-            </span>
-          </div>
-          <div className="contents im5">
-            <div className="img i5">
-              <p>MOUSE</p>
-            </div>
-            <span>
-              마우스 커서를 따라 움직이는 애니메이션을 구현하며,
-              getBoundingClientRect()를 정확한 중앙 위치를 계산하고
-              조정합니다.
-            </span>
-          </div>
+          <svg
+            className="content__img content__img--1"
+            width="100%"
+            height="100%"
+            viewBox="0 0 504 719"
+            onClick={openPopup}
+          >
+            <defs>
+              <filter id="displacementFilter">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.03"
+                  numOctaves="3"
+                  result="noise"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="noise"
+                  scale="50"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+              <mask id="circleMask3">
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="0"
+                  fill="white"
+                  ref={circleMaskRef3}
+                  className="mask"
+                  style={{ filter: "url(#displacementFilter)" }}
+                />
+              </mask>
+            </defs>
+            <image
+              xlinkHref={Img6}
+              width="100%"
+              height="100%"
+              mask="url(#circleMask3)"
+            />
+          </svg>
+          <Mouse imgRef={imgRef} />
         </div>
       </div>
-    </div>
+      <Section6Popup onClick={closePopup} />
+    </section>
   );
 };
 
