@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1b00de9a.css",
+    "main.js": "/static/js/main.6b5c2e9b.js",
+    "static/media/php_mockup.png": "/static/media/php_mockup.9b3ad05c4cc558fbe104.png",
+    "static/media/movie_mockup.jpg": "/static/media/movie_mockup.e0c72b70331f96e56791.jpg",
+    "static/media/test.png": "/static/media/test.05ae36e985fe1d830f70.png",
+    "static/media/youtube_mockup.jpg": "/static/media/youtube_mockup.0d0c8e7f71d52f5ffe72.jpg",
+    "static/media/section6bg.png": "/static/media/section6bg.eeba3370c6902a59652e.png",
+    "static/media/slider.png": "/static/media/slider.4baf5352b04b88f59822.png",
+    "static/media/mouse.png": "/static/media/mouse.ef0f5641c4532a1337be.png",
+    "static/media/section5bg.png": "/static/media/section5bg.8fc5d073be78e3fcfa1f.png",
+    "static/media/section3bg.png": "/static/media/section3bg.27d7d610bf4b6f963714.png",
+    "static/media/quiz.png": "/static/media/quiz.e8a13f1f99d415072270.png",
+    "static/media/gsap.gif": "/static/media/gsap.11d49644645ac20e137c.gif",
+    "static/media/gsap.png": "/static/media/gsap.a76602627b17d4f52d31.png",
+    "static/media/slider.gif": "/static/media/slider.a615ef8f90d71035f9f7.gif",
+    "static/media/quiz.gif": "/static/media/quiz.61adb8566c0391748a9a.gif",
+    "static/media/mouse.gif": "/static/media/mouse.594dbbfcb105d08f4a96.gif",
+    "static/media/section2bg.png": "/static/media/section2bg.a2060fa0dcef1820c94f.png",
+    "static/media/PPRader-Thin.woff": "/static/media/PPRader-Thin.3acb226c50424bbc04f9.woff",
+    "static/media/search.gif": "/static/media/search.9ca1b1506af7bfa97a03.gif",
+    "static/media/search.png": "/static/media/search.0a05392c45501eea4b53.png",
+    "static/media/PPRader-Thin.woff2": "/static/media/PPRader-Thin.994e18beaea894e19d5c.woff2",
+    "static/media/PPNeueWorld-ExtendedThin.woff": "/static/media/PPNeueWorld-ExtendedThin.13648f5f3ec138e3f44a.woff",
+    "static/media/PPPangaia-BoldItalic-BF654c530c8d2fa.woff": "/static/media/PPPangaia-BoldItalic-BF654c530c8d2fa.785ce8272fcf2b2f5128.woff",
+    "static/media/PPNeueWorld-ExtendedThin.woff2": "/static/media/PPNeueWorld-ExtendedThin.b1beaf7e1e0dd695e8f2.woff2",
+    "static/media/PPRightDidone-CompactDark.woff": "/static/media/PPRightDidone-CompactDark.78fff1eb655bbc940be2.woff",
+    "static/media/PPRightDidone-CompactDark.woff2": "/static/media/PPRightDidone-CompactDark.93d3cc0bf8874b99f76c.woff2",
+    "index.html": "/index.html",
+    "static/media/close.svg": "/static/media/close.27e8e13c906c14d3d582.svg",
+    "main.1b00de9a.css.map": "/static/css/main.1b00de9a.css.map",
+    "main.6b5c2e9b.js.map": "/static/js/main.6b5c2e9b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b00de9a.css",
+    "static/js/main.6b5c2e9b.js"
+  ]
+}
