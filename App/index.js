@@ -3,17 +3,17 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 const app = express();
-const port = 5050;
-const config = require("./config/key.js");
+const port = process.env.PORT || 5050;
+const config = require("./server/config/key.js");
 
 app.set("port", process.env.PORT || 5050);
 
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const { Comment } = require("./model/Comment.js");
-const { Counter } = require("./model/Counter.js");
+const { Comment } = require("./server/model/Comment.js");
+const { Counter } = require("./server/model/Counter.js");
 
 app.listen(port, () => {
   mongoose
@@ -28,11 +28,11 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // 글쓰기
