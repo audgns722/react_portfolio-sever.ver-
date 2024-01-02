@@ -20,7 +20,6 @@ npm i react-router-dom
 npm i @studio-freight/lenis
 npm install gsap split-type
 npm install react-icons --save
-npm install moment --save
 npm install react-highlight --save
 npm install highlight.js
 
