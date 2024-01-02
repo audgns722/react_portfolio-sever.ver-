@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Canvas } from "../../utils/canvas";
 
 const Intro = () => {
+  const [opacity2, setOpacity2] = useState(0);
   useEffect(() => {
     Canvas("intro");
+    setOpacity2(1);
   }, []);
+  const introStyle = {
+    opacity: opacity2,
+    transition: "opacity 2s ease", // 부드러운 페이드인을 위한 전환 효과 설정
+  };
+
   const fontVariables = [
     "--section2",
     "--section3",
@@ -42,7 +49,7 @@ const Intro = () => {
   };
 
   return (
-    <div id="intro">
+    <div id="intro" style={introStyle}>
       <div className="intro">
         <h1 style={h1Style}>Hello My PortFolio</h1>
         <p>
