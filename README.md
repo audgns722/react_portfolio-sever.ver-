@@ -22,6 +22,7 @@ npm install gsap split-type
 npm install react-icons --save
 npm install react-highlight --save
 npm install highlight.js
+npm install moment
 
 ```
 
@@ -37,4 +38,5 @@ npm install highlight.js
     - ####
 
     </details>
+
 https://tympanus.net/Development/OnScrollFilter/
