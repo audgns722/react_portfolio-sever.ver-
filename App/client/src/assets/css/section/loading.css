@@ -1,0 +1,60 @@
+.loading-page {
+  background: var(--black);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+}
+
+.loading-page .counter {
+  text-align: center;
+  position: relative;
+  width: 200px;
+}
+.loading-page .counter p {
+  font-size: 40px;
+  font-weight: 100;
+  color: #f60d54;
+  font-family: var(--section3);
+  text-transform: uppercase;
+}
+.loading-page .counter h1 {
+  color: white;
+  font-size: 60px;
+  margin-top: -10px;
+  font-family: var(--section3);
+}
+.loading-page .counter hr {
+  background: #f60d54;
+  border: none;
+  height: 1px;
+}
+
+.loading-page.counter h1.abs {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.loading-page {
+}
+
+.loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #38383831; /* 배경색 */
+  transform-origin: top; /* 애니메이션 기준점을 상단으로 설정 */
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+}
+
+.counter {
+  position: relative;
+  /* 필요한 스타일링 */
+}
