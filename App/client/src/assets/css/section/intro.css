@@ -5,7 +5,7 @@
 
 .intro {
   width: 100%;
-  height: 85vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,11 +39,11 @@
 
 .scroll__down {
   height: 10vh;
-  margin-bottom: 5vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--bgcolor);
 }
 
 .scroll__down span {

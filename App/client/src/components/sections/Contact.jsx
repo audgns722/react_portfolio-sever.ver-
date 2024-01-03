@@ -11,7 +11,7 @@ const Contact = () => {
   const [content, setContent] = useState("");
   const [commentList, setCommentList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(7);
+  const [itemsPerPage] = useState(6);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -102,6 +102,47 @@ const Contact = () => {
     <div id="contact">
       <div className="contact__me">
         <div className="title">Comment</div>
+        <div className="comment__result">
+          {currentItems.map((comment, key) => (
+            <div className="comments" key={key}>
+              <div className="left">
+                <p className="text">{comment.content}</p>
+              </div>
+              <div className="right">
+                <div className="right__wrap">
+                  <p className="author">{comment.author}</p>
+                  <div>{moment(comment.createdAt).format("YYYY-MM-DD")}</div>
+                </div>
+                <div className="delete">
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      DeleteHandler(
+                        comment.commentNum,
+                        deletePasswords[comment.commentNum]
+                      );
+                    }}
+                  >
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      value={deletePasswords[comment.commentNum] || ""}
+                      onChange={(e) =>
+                        handlePasswordChange(comment.commentNum, e.target.value)
+                      }
+                      autoComplete="off"
+                    />
+                    <button type="submit" className="delete__btn">
+                      삭제하기
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <ul className="page_numbers">{renderPageNumbers}</ul>
         <form>
           <fieldset style={{ border: "none" }}>
             <legend className="blind">댓글 영역</legend>
@@ -156,46 +197,6 @@ const Contact = () => {
             </div>
           </fieldset>
         </form>
-
-        <div className="comment__result">
-          {currentItems.map((comment, key) => (
-            <div className="comments" key={key}>
-              <div className="left">
-                <p className="text">{comment.content}</p>
-              </div>
-              <div className="right">
-                <p className="author">{comment.author}</p>
-                <div>{moment(comment.createdAt).format("YYYY-MM-DD")}</div>
-                <div className="delete">
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      DeleteHandler(
-                        comment.commentNum,
-                        deletePasswords[comment.commentNum]
-                      );
-                    }}
-                  >
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      value={deletePasswords[comment.commentNum] || ""}
-                      onChange={(e) =>
-                        handlePasswordChange(comment.commentNum, e.target.value)
-                      }
-                      autoComplete="off"
-                    />
-                    <button type="submit" className="delete__btn">
-                      삭제하기
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <ul className="page_numbers">{renderPageNumbers}</ul>
       </div>
     </div>
   );

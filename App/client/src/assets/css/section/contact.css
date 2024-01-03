@@ -61,10 +61,9 @@
   margin-bottom: 15px;
   cursor: pointer;
 }
-.comment__result {
-}
+
 .page_numbers {
-  margin-top: 5vh;
+  margin: 30px 0;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -89,13 +88,15 @@
   border-bottom: 1px solid var(--white);
   color: var(--white);
 }
-.comment__result .comments .left {
-}
 .comment__result .comments .right {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+}
+.comment__result .comments .right .right__wrap {
+  display: flex;
+  gap: 10px;
 }
 .comment__result .comments .delete input {
   width: 100px;
@@ -109,4 +110,25 @@
   color: var(--white);
   cursor: pointer;
   padding: 5px;
+}
+@media (max-width: 550px) {
+  .contact__me {
+    width: 90%;
+  }
+  .comment__result .comments .right {
+    flex-direction: column;
+    gap: 0;
+  }
+  .comment__result .comments {
+    height: 65px;
+  }
+  .comment__result .comments .left {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contact__me {
+    width: 100%;
+  }
 }
