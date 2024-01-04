@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 5050;
 const config = require("./server/config/key.js");
 
+
 app.use(express.static(path.join(__dirname, "./client/build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

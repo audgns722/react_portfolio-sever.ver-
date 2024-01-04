@@ -13,7 +13,6 @@ export const Loading = ({ setIsLoading }) => {
           gsap.to([loadingBarRef.current, textRef.current], {
             // 로딩 바와 텍스트에 애니메이션 적용
             opacity: 0,
-            scale: 3,
             duration: 1,
             ease: "power2.out",
             onComplete: () => setIsLoading(false),
@@ -26,8 +25,8 @@ export const Loading = ({ setIsLoading }) => {
 
     gsap.fromTo(
       loadingBarRef.current,
-      { scaleY: 1 },
-      { scaleY: 0, duration: 100 * 0.05, ease: "none" }
+      { opacity: 1 },
+      { opacity: 0, duration: 100 * 0.1, ease: "none" }
     );
 
     return () => clearInterval(interval);

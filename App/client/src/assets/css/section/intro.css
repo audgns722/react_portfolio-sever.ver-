@@ -46,14 +46,11 @@
   background-color: var(--bgcolor);
 }
 
-.scroll__down span {
-  font-family: var(--korfont);
-  color: #5a5a5a;
-}
-
-.scroll__down div {
-  width: 1px;
-  height: 90px;
-  margin-bottom: 5px;
-  background-color: #5a5a5a;
+.scroll__down .line {
+  background-image: url(../../img/scrolldown.svg);
+  height: 100%;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }

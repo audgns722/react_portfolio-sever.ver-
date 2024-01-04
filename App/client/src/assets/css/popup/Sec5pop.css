@@ -44,6 +44,7 @@
   font-family: "blueroad";
   margin-bottom: 20px;
 }
+
 #sec5popup .popup__wrap .right h3 {
   font-family: "blueroad";
   margin-bottom: 5px;
@@ -67,7 +68,7 @@
   border-radius: 50px;
 }
 
-#sec5popup .popup__wrap .close > div {
+#sec5popup .popup__wrap .close>div {
   width: 20px;
   height: 20px;
   background-image: url(../../img/close.svg);
@@ -75,20 +76,23 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 #sec5popup .popup__wrap .Link {
   display: flex;
   gap: 15px;
   justify-content: flex-end;
   align-items: center;
 }
+
 #sec5popup .popup__wrap .view,
 #sec5popup .popup__wrap .code {
   font-family: "GmarketSans";
-  padding: 10px 15px;
+  padding: 7px 15px;
   background-color: #282c34;
+  margin-top: 15px;
   font-weight: 600;
   color: var(--white);
-  border-radius: 15px;
+  border-radius: 30px;
   text-transform: uppercase;
   transition: all 0.3s;
 }
@@ -119,6 +123,7 @@
   #sec5popup .popup__wrap .left {
     width: 35%;
   }
+
   #sec5popup .popup__wrap .right {
     width: 65%;
   }
@@ -128,10 +133,12 @@
   #sec5popup .popup__wrap {
     flex-direction: column;
   }
+
   #sec5popup .popup__wrap .left {
     width: 100%;
     height: 50%;
   }
+
   #sec5popup .popup__wrap .right {
     width: 100%;
     padding: 20px;

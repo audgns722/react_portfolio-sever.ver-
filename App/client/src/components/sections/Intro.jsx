@@ -1,11 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { Canvas } from "../../utils/canvas";
+import gsap from "gsap";
 
 const Intro = () => {
   const [opacity2, setOpacity2] = useState(0);
   useEffect(() => {
     Canvas("intro");
     setOpacity2(1);
+
+    // gsap 타임라인 생성
+    const tl = gsap.timeline();
+
+    tl
+      .fromTo("canvas", {
+        opacity: 0,
+        duration: 2,
+      }, {
+        opacity: 1,
+        ease: "power3.in"
+      })
+      .fromTo(".intro h1", {
+        scaleY: 1.5,
+        opacity: 0,
+        y: -50,
+        duration: 3
+      }, {
+        scaleY: 1,
+        opacity: 1,
+        y: 0
+      })
+      .fromTo(".intro p", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+      }, {
+        opacity: 1,
+        y: 0,
+        ease: "power3.in"
+      })
+      .fromTo(".scroll__down .line", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+      }, {
+        opacity: 1,
+        y: 0,
+        ease: "power3.in"
+      })
   }, []);
   const introStyle = {
     opacity: opacity2,
@@ -58,11 +99,6 @@ const Intro = () => {
       </div>
       <div className="scroll__down">
         <div className="line"></div>
-        <span>
-          스크롤을 내리면
-          <br />
-          포트폴리오를 볼 수 있습니다.
-        </span>
       </div>
     </div>
   );

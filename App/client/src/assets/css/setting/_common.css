@@ -1,5 +1,4 @@
-body {
-}
+body {}
 
 body::-webkit-scrollbar {
   width: 0;
@@ -10,17 +9,21 @@ body::-webkit-scrollbar {
   position: relative;
   background-color: var(--bgcolor);
 }
+
 #section2 {
   margin-top: 0;
   padding-top: 40vh;
 }
+
 section {
-  margin-top: 20vh;
+  margin-top: 40vh;
 }
+
 @media (max-width: 600px) {
   section {
     margin-top: 0;
   }
+
   #section2 {
     padding-top: 20vh;
     height: 120vh;
@@ -46,11 +49,13 @@ section {
   height: 40px;
   transition: all 0.3s;
 }
+
 #footer a:hover svg {
   fill: #000;
   background-color: #fff;
   border-radius: 5px;
 }
+
 #footer a svg {
   width: 100%;
   height: 100%;
@@ -60,6 +65,7 @@ section {
   from {
     filter: hue-rotate(0deg);
   }
+
   to {
     filter: hue-rotate(360deg);
   }
@@ -137,6 +143,7 @@ html.lenis {
     font-weight: 700;
   }
 }
+
 @media (max-width: 800px) {
   .mouse__cursor {
     width: 10vw;
