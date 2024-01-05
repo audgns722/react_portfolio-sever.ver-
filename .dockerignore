@@ -1,0 +1,19 @@
+# flyctl launch added from .gitignore
+App\server\config\dev.js
+App\node_modules
+App\package-lock.json
+
+App\client\node_modules
+App\client\package-lock.json
+
+# flyctl launch added from App\client\.gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+App\client\node_modules
+
+# flyctl launch added from App\server\.gitignore
+# dependencies
+App\server\node_modules
+
+fly.toml
