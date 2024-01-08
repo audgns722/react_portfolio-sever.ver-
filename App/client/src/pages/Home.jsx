@@ -4,6 +4,7 @@ import Section3 from "../components/sections/Section3";
 import Section4 from "../components/sections/Section4";
 import Section5 from "../components/sections/Section5";
 import Section6 from "../components/sections/Section6";
+import Section7 from "../components/sections/Section7";
 
 const Home = () => {
   const [isActive, setIsActive] = useState(false);
@@ -14,6 +15,7 @@ const Home = () => {
       <Section4 isActive={isActive} setIsActive={setIsActive} />
       <Section5 isActive={isActive} setIsActive={setIsActive} />
       <Section6 isActive={isActive} setIsActive={setIsActive} />
+      <Section7 isActive={isActive} setIsActive={setIsActive} />
     </>
   );
 };

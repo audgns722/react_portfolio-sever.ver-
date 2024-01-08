@@ -14,6 +14,7 @@
 @import "./section/section4.css";
 @import "./section/section5.css";
 @import "./section/section6.css";
+@import "./section/section7.css";
 @import "./section/script.css";
 @import "./section/contact.css";
 @import "./section/loading.css";
@@ -24,3 +25,4 @@
 @import "./popup/Sec4pop.css";
 @import "./popup/Sec5pop.css";
 @import "./popup/Sec6pop.css";
+@import "./popup/Sec7pop.css";

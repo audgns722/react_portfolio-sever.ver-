@@ -4,6 +4,5 @@
 /App/Dockerfile
 /App/.dockerignore
 /App/fly.toml
-fly.toml
 /App/client/node_modules
 /App/client/package-lock.json

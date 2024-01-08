@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Img3 from "../../assets/img/test.png";
+import Img3 from "../../assets/img/section4bg.png";
 import Section4Popup from "../popup/Section4Popup";
 
 import { ScrollTrigger } from "gsap/all";

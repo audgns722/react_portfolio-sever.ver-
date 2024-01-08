@@ -26,7 +26,7 @@
 #sec4popup .popup__wrap .left {
   width: 50%;
   height: 100%;
-  background-image: url(../../img/movie_mockup.jpg);
+  background-image: url(../../img/movie_Mockup.png);
   background-size: cover;
   background-position: 40% center;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@
   border-radius: 50px;
 }
 
-#sec4popup .popup__wrap .close>div {
+#sec4popup .popup__wrap .close > div {
   width: 20px;
   height: 20px;
   background-image: url(../../img/close.svg);
