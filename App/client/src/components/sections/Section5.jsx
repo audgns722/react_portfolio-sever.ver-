@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Mouse from "../utils/Mouse";
 import Section5Popup from "../popup/Section5Popup";
 
-const Section5 = () => {
+const Section5 = ({ setIsActive, isActive }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -285,7 +285,7 @@ const Section5 = () => {
   return (
     <section id="section5" ref={section5Ref}>
       <div className="contents5">
-        <div className="cont__box" ref={imgRef}>
+        <div className="cont__box">
           <div className="text1" ref={text1Ref}>
             TeamProject
           </div>
@@ -302,6 +302,9 @@ const Section5 = () => {
             height="100%"
             viewBox="0 0 1920 579"
             onClick={openPopup}
+            ref={imgRef}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
           >
             <defs>
               <filter id="displacementFilter5">
@@ -344,7 +347,7 @@ const Section5 = () => {
               mask="url(#circleMask5)"
             />
           </svg>
-          <Mouse imgRef={imgRef} />
+          <Mouse imgRef={imgRef} isActive={isActive} />
         </div>
       </div>
       <Section5Popup onClick={closePopup} />

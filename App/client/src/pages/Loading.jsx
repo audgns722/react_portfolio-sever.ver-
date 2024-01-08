@@ -5,12 +5,13 @@ export const Loading = ({ setIsLoading }) => {
   const [counter, setCounter] = useState(0);
   const loadingBarRef = useRef(null);
   const textRef = useRef(null);
+  const barRef = useRef(null);
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => {
         if (prevCounter === 100) {
           clearInterval(interval);
-          gsap.to([loadingBarRef.current, textRef.current], {
+          gsap.to([loadingBarRef.current, textRef.current, barRef.current], {
             // 로딩 바와 텍스트에 애니메이션 적용
             opacity: 0,
             duration: 1,
@@ -40,8 +41,8 @@ export const Loading = ({ setIsLoading }) => {
         {/* 텍스트 요소에 ref 적용 */}
         <p>Loading</p>
         <h1>{counter}%</h1>
-        <hr style={{ width: `${counter}%` }} />
       </div>
+      <hr ref={barRef} style={{ width: `${counter}%` }} />
     </div>
   );
 };

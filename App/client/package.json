@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "flip": "^1.0.0",
+    "framer-motion": "^10.17.9",
     "gsap": "^3.12.4",
     "highlight.js": "^11.9.0",
     "http-proxy-middleware": "^2.0.6",

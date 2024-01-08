@@ -46,7 +46,22 @@ const Contact = () => {
     axios.post("/api/comment", body).then((response) => {
       if (response.data.success) {
         alert("댓글 작성이 완료되었습니다.");
-        window.location.reload();
+
+        // 새로 작성된 댓글 생성 (응답 데이터 또는 직접 생성)
+        const newComment = {
+          author: author,
+          content: content,
+          createdAt: new Date(),
+          commentNum: response.data.commentNum || Date.now(),
+        };
+
+        // 새 댓글을 commentList에 추가
+        setCommentList([newComment, ...commentList]);
+
+        // 입력 필드 초기화
+        setAuthor("");
+        setPassword("");
+        setContent("");
       } else {
         alert("댓글 작성이 실패하였습니다.");
       }
@@ -80,15 +95,11 @@ const Contact = () => {
         commentNum: commentNum,
         password: password,
       };
-      axios
-        .post("/api/delete", body)
+      axios.post("/api/delete", body)
         .then((response) => {
           if (response.data.success) {
             alert("댓글이 삭제되었습니다.");
-            setCommentList(
-              commentList.filter((comment) => comment.commentNum !== commentNum)
-            );
-            window.location.reload();
+            setCommentList(commentList.filter((comment) => comment.commentNum !== commentNum));
           }
         })
         .catch((err) => {

@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer.jsx";
 import Intro from "./components/sections/Intro.jsx";
 import Contact from "./components/sections/Contact.jsx";
 import { Loading } from "./pages/Loading.jsx";
+import Script from "./components/sections/Script.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
             </Routes>
           </Main>
+          <Script />
           <Contact />
           <Footer />
         </>

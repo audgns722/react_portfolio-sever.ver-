@@ -1,8 +1,15 @@
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
+import { motion } from 'framer-motion'
 
-const Mouse = ({ imgRef }) => {
+const Mouse = ({ imgRef, setIsActive, isActive }) => {
   const mouseCursorRef = useRef(null);
+
+  const scaleAnimation = {
+    initial: { scale: 0, },
+    enter: { scale: 1, tranition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
+    closed: { scale: 0, tranition: { duration: 0.4, ease: [0.32, 0, 0.67, 1] } }
+  }
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -22,37 +29,14 @@ const Mouse = ({ imgRef }) => {
     const imageElement = imgRef.current;
     imageElement.addEventListener("mousemove", handleMouseMove);
 
-    const showCursor = () => {
-      gsap.fromTo(
-        mouseCursorRef.current,
-        { autoAlpha: 0, scale: 0.2 },
-        { autoAlpha: 1, scale: 1.5, duration: 0.1 }
-      );
-    };
-
-    const hideCursor = () => {
-      gsap.to(mouseCursorRef.current, {
-        autoAlpha: 0,
-        scale: 0.5,
-        duration: 0.3,
-      });
-    };
-
-    imageElement.addEventListener("mouseenter", showCursor);
-    imageElement.addEventListener("mouseleave", hideCursor);
-
-    return () => {
-      imageElement.removeEventListener("mousemove", handleMouseMove);
-      imageElement.removeEventListener("mouseenter", showCursor);
-      imageElement.removeEventListener("mouseleave", hideCursor);
-    };
   }, [imgRef]);
 
   return (
-    <div className="mouse__cursor" ref={mouseCursorRef}>
+
+    <motion.div ref={mouseCursorRef} variants={scaleAnimation} initial="initial" animate={isActive ? "enter" : "closed"} className='mouse__cursor'>
       <div className="cursor2"></div>
       <span className="cursor-label">Click Me</span>
-    </div>
+    </motion.div>
   );
 };
 

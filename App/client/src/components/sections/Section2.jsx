@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Mouse from "../utils/Mouse";
 import Section2Popup from "../popup/Section2Popup";
 
-const Section2 = () => {
+const Section2 = ({ setIsActive, isActive }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -286,7 +286,7 @@ const Section2 = () => {
   return (
     <section id="section2" ref={section2Ref}>
       <div className="contents2">
-        <div className="cont__box" ref={imgRef}>
+        <div className="cont__box">
           <div className="text1" ref={text1Ref}>
             youtube
           </div>
@@ -303,6 +303,9 @@ const Section2 = () => {
             height="100%"
             viewBox="0 0 504 719"
             onClick={openPopup}
+            ref={imgRef}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
           >
             <defs>
               <filter id="displacementFilter">
@@ -339,7 +342,7 @@ const Section2 = () => {
               mask="url(#circleMask)"
             />
           </svg>
-          <Mouse imgRef={imgRef} />
+          <Mouse imgRef={imgRef} isActive={isActive} />
         </div>
       </div>
       <Section2Popup onClick={closePopup} />

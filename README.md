@@ -23,12 +23,14 @@ npm install react-icons --save
 npm install react-highlight --save
 npm install highlight.js
 npm install moment
-
+npm install framer-motion
 ```
 
 `npm run dev` 실행하기
 
 ## 제작순서
+
+## ref와 forwardRef의 차이점?
 
 ## 트러블 슈팅
 

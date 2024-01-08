@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Mouse from "../utils/Mouse";
 
-const Section4 = () => {
+const Section4 = ({ setIsActive, isActive }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -285,7 +285,7 @@ const Section4 = () => {
   return (
     <section id="section4" ref={section4Ref}>
       <div className="contents4">
-        <div className="cont__box" ref={imgRef}>
+        <div className="cont__box">
           <div className="text1" ref={text1Ref}>
             Movie
           </div>
@@ -302,6 +302,9 @@ const Section4 = () => {
             height="100%"
             viewBox="0 0 1000 560"
             onClick={openPopup}
+            ref={imgRef}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
           >
             <defs>
               <filter id="displacementFilter3">
@@ -337,7 +340,7 @@ const Section4 = () => {
               mask="url(#pathMask)"
             />
           </svg>
-          <Mouse imgRef={imgRef} />
+          <Mouse imgRef={imgRef} isActive={isActive} />
         </div>
       </div>
       <Section4Popup onClick={closePopup} />
