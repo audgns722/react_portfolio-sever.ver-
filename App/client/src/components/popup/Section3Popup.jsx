@@ -129,7 +129,9 @@ export const userSlice = createSlice({
             사용자가 로그인하면 그에 맞는 인터페이스를 볼 수 있고, 로그아웃
             상태일 때는 로그인 및 회원가입 옵션을 볼 수 있습니다.
           </p>
-          <h3>👉 Async/Await을 사용하지 않아 발생한 문제</h3>
+
+          <h3>😖트래블 슈팅</h3>
+          <h3>Async/Await을 사용하지 않아 발생한 문제</h3>
           <p>
             문제상황 : async/await을 사용하지 않고 MongoDB의 쿼리를
             실행했습니다.

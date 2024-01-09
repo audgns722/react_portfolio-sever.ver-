@@ -28,7 +28,7 @@
   height: 100%;
   background-image: url(../../img/promptopiaMockup.png);
   background-size: cover;
-  background-position: 40% center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -68,7 +68,7 @@
   border-radius: 50px;
 }
 
-#sec7popup .popup__wrap .close > div {
+#sec7popup .popup__wrap .close>div {
   width: 20px;
   height: 20px;
   background-image: url(../../img/close.svg);

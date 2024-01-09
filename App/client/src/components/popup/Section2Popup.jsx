@@ -59,15 +59,66 @@ const Section2Popup = ({ onClick }) => {
         });
   }, [videoId]);`}
           </Highlight>
-          <h3>👉 조건부 UI 렌더링</h3>
+          <p>선택된 비디오의 ID가 변경될 때마다 해당 비디오의 세부 정보와 댓글을 새로 불러와 상태에 저장</p>
+          <h3>👉 조건부 UI 렌더링 / 더 보기 기능</h3>
           <Highlight className="javascript">
             {`const searchPageClass = loading ? 'isLoading' : 'isLoaded';
+
 const handleLoadMore = () => {
   if (nextPageToken) {
       setLoading(true);
       fetchVideos(searchId, nextPageToken);
   }}`}
           </Highlight>
+          <p>
+            loading 상태 변수를 사용하여 페이지의 로딩 상태에 따라 클래스 이름을 동적으로 변경합니다. loading이 true인 경우, searchPageClass는 "isLoading" 값을 가지며, false인 경우 "isLoaded" 값을 가집니다.
+          </p>
+          <p>
+            handleLoadMore 함수는 사용자가 더 많은 컨텐츠를 요청할 때 호출됩니다. nextPageToken이 존재할 경우 추가 데이터를 불러오는 로직을 수행합니다. setLoading(true)는 데이터 로딩 과정이 시작됨을 나타냅니다.
+          </p>
+
+          <h3>👉 조건부 클래스 (layout)</h3>
+          <Highlight className="javascript">
+            {`const VideoSearch = ({ videos, layout = '' }) => {
+    // ...
+}
+{videos.map((video, key) => (
+    <div className={video\${layout}\} key={key}>    
+    </div>
+))}`}
+          </Highlight>
+          <p>
+            layout prop의 값에 따라 각 비디오 요소에 다른 클래스가 추가됩니다.
+            이를 통해 동일한 VideoSearch 컴포넌트를 다른 스타일로 재사용할 수 있습니다.
+          </p>
+          <h3>😖트래블 슈팅</h3>
+          <h3>API 호출시 404 에러</h3>
+          <Highlight className="javascript">
+            {`// 문제코드
+export const BASE_URL = 'https://youtube-v31.p.rapidapi.com/';
+
+export const fetchFromAPI = async (url) => {
+    const { data } = await axios.get(\${BASE_URL}/\${url}\, options);
+    return data;
+};
+
+// 개선코드
+export const BASE_URL = 'https://youtube-v31.p.rapidapi.com';`}
+          </Highlight>
+          <p>
+            문제의 원인은 base_url 끝 경로에 '/'가 추가되어 API URL 호출이 실패한 것이었습니다.
+          </p>
+
+          <h3>TypeError: Cannot read property 'map' of undefined</h3>
+          <Highlight className="javascript">
+            {`// 문제코드
+const [channelVideo, setChannelVideo] = useState();
+// 개선코드
+const [channelVideo, setChannelVideo] = useState([]);`}
+          </Highlight>
+          <p>
+            channelVideo는 초기에 빈 배열로 설정되며, 이후에도 배열로 유지됩니다. 따라서 channelVideo에 대해 map 같은 배열 메소드를 사용할 때, undefined 값으로 인한 에러가 발생하지 않게 됩니다.
+          </p>
           <div className="Link">
             <Link
               to="https://youtube-project2023-huns.netlify.app/"
@@ -88,8 +139,8 @@ const handleLoadMore = () => {
         <Link to="/" className="close" onClick={onClick}>
           <div></div>
         </Link>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

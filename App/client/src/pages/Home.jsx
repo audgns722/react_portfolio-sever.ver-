@@ -14,7 +14,7 @@ const Home = () => {
       <Section3 isActive={isActive} setIsActive={setIsActive} />
       <Section4 isActive={isActive} setIsActive={setIsActive} />
       <Section5 isActive={isActive} setIsActive={setIsActive} />
-      <Section6 isActive={isActive} setIsActive={setIsActive} />
+      {/* <Section6 isActive={isActive} setIsActive={setIsActive} /> */}
       <Section7 isActive={isActive} setIsActive={setIsActive} />
     </>
   );
