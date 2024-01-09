@@ -8,6 +8,17 @@
 미리보기 :
 
 ## 사용 스택
+Front-End
+- React, GSAP, Framer Motion, axios
+
+Back-End
+- Node.js, Express, MongoDB, mongoose
+
+Deploy
+fly.io
+
+Etc-Tool
+- moment.js react-router-dom, react-highlight와 highlight.js
 
 ## 라이브러리 설치
 
