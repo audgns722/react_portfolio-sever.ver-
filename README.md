@@ -1,4 +1,6 @@
 # 👓Developer Mhun Portfolio(react.ver)
+프론트엔드 개발자 이명훈의 포트폴리오 사이트입니다.   
+스크롤을 내려 이미지를 클릭하시면 자세한 소스코드 및 기능 구현 정보를 확인하실수 있습니다.
 
 ## 제작기간
 23.12.20 ~ 24.01.08
@@ -8,6 +10,17 @@
 미리보기 :
 
 ## 사용 스택
+Front-End
+- React, GSAP, Framer Motion, axios
+
+Back-End
+- Node.js, Express, MongoDB, mongoose
+
+Deploy
+fly.io
+
+Etc-Tool
+- moment.js react-router-dom, react-highlight와 highlight.js
 
 ## 라이브러리 설치
 
