@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 const { Comment } = require("./server/model/Comment.js");
 const { Counter } = require("./server/model/Counter.js");
 
+// app.listen(port, () => {
 app.listen(port, ("0.0.0.0"), () => {
   mongoose
     .connect(config.mongoURI)

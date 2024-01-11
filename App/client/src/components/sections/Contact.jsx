@@ -11,7 +11,7 @@ const Contact = () => {
   const [content, setContent] = useState("");
   const [commentList, setCommentList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(10);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -79,7 +79,7 @@ const Contact = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [commentList]);
 
   // 비밀번호 입력 처리 함수
   const handlePasswordChange = (commentNum, password) => {
@@ -114,9 +114,10 @@ const Contact = () => {
       <div className="contact__me">
         <div className="title">Comment</div>
         <div className="comment__result">
-          {currentItems.map((comment, key) => (
-            <div className="comments" key={key}>
+          {currentItems.map((comment, index) => (
+            <div className="comments" key={index}>
               <div className="left">
+                <span>{index + 1}</span>
                 <p className="text">{comment.content}</p>
               </div>
               <div className="right">
