@@ -8,6 +8,7 @@
 ## 완성작 보기
 
 미리보기 :
+<img src="https://github.com/audgns722/react_portfolio2023/blob/main/reactportfolio.png?raw=true" />
 
 ## 사용 스택
 Front-End
