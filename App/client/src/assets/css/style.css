@@ -16,8 +16,9 @@
 @import "./section/section6.css";
 @import "./section/section7.css";
 @import "./section/script.css";
-@import "./section/contact.css";
+@import "./section/comment.css";
 @import "./section/loading.css";
+@import "./section/portlist.css";
 
 /* popup */
 @import "./popup/Sec2pop.css";

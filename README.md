@@ -254,3 +254,14 @@ const DeleteHandler = (commentNum, password) => {
 Fly.io 배포
 - fly.io를 사용하여 서버 애플리케이션 배포.
 - fly.io의 CLI 도구를 사용하여 배포 프로세스 관리 및 구성.
+- `iwr https://fly.io/install.ps1 -useb | iex` 설치
+- `flyctl auth login` 로그인
+- `flyctl launch` 및 `flyctl deploy`
+- port8080설정 및 (0.0.0.0) 사용가능 설정
+```
+<!-- .dockerignore -->
+server\config\dev.js
+node_modules
+
+client\node_modules
+```

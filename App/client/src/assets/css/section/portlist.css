@@ -1,0 +1,146 @@
+#portlist {
+    padding: 50vh 0;
+    background-color: #000;
+}
+
+#portlist h4 {
+    text-align: center;
+    font-family: 'PP Rader';
+    font-size: 4vw;
+    font-weight: 100;
+    color: #fff;
+}
+
+
+.list__wrap {
+    background: #000;
+    margin: 50px;
+}
+
+.list__cate {
+    border: 1px solid #ffffff1e;
+    padding: 20px;
+    border-radius: 50px;
+    margin-bottom: 50px;
+}
+
+.list__cate span {
+    color: #fff;
+    border: 1px solid #ffffff1e;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 50px;
+    font-family: 'PP Rader';
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.list__cate span.active {
+    background-color: #fff;
+    -webkit-text-stroke: 1px #3a3a3a;
+    color: #000;
+}
+
+.list__cate span:hover {
+    background-color: #fff;
+    -webkit-text-stroke: 1px #3a3a3a;
+    color: #000;
+}
+
+.list__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.list__item .item h4 {
+    position: relative;
+}
+
+.list__item .item:hover h4 .arrow {
+    right: 10px;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.list__item .item h4 .arrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -50px;
+    bottom: 10px;
+    display: inline-block;
+    transform: rotate(720deg);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    fill: #000;
+    z-index: 10;
+    background-image: url(../../img/arrow.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.list__item .item h4 svg {
+    fill: #000;
+
+}
+
+.list__item .item {
+    width: 30%;
+    min-height: 300px;
+    border: 1px solid #ffffff1e;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#portlist .list__item .item h4 {
+    text-align: left;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 30px;
+    font-size: 30px;
+    font-family: 'gowunBatang';
+    border-radius: 20px 20px 0 0;
+}
+
+#portlist .list__item .item p {
+    color: #fff;
+    font-family: 'gowunBatang';
+    padding: 20px 30px;
+}
+
+#portlist .list__item .item ul {
+    color: #fff;
+    font-family: 'gowunBatang';
+    padding: 20px 30px;
+}
+
+#portlist .list__item .item ul li {
+    border-bottom: 1px solid #ffffff1e;
+    padding-bottom: 14px;
+    display: flex;
+    align-items: center;
+}
+
+#portlist .list__item .item ul li:last-child {
+    border: 0;
+}
+
+#portlist .list__item .item ul li span {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-right: 10px;
+    display: inline-block;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: 'gowunBatang';
+
+}
+
+#portlist .list__item .item ul li:nth-of-type(2) span {}

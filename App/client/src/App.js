@@ -6,9 +6,10 @@ import { smooth } from "./utils/smooth";
 import Main from "./components/layout/Main.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Intro from "./components/sections/Intro.jsx";
-import Contact from "./components/sections/Contact.jsx";
+import Comment from "./components/sections/Comment.jsx";
 import { Loading } from "./pages/Loading.jsx";
 import Script from "./components/sections/Script.jsx";
+import PortList from "./components/sections/PortList.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -25,7 +26,7 @@ const App = () => {
   }, []);
   return (
     <>
-      {isLoading ? (
+      {!isLoading ? (
         <Loading setIsLoading={setIsLoading} />
       ) : (
         <>
@@ -33,10 +34,11 @@ const App = () => {
           <Main>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/portlist" element={<PortList />} />
             </Routes>
           </Main>
-          <Script />
-          <Contact />
+          {/* <Script /> */}
+          <Comment />
           <Footer />
         </>
       )}

@@ -1,0 +1,186 @@
+#commentsection {
+  width: 100%;
+  min-height: 100vh;
+  margin: 5vh 0;
+  color: var(--white);
+  font-family: 'gowunBatang';
+}
+
+
+#commentsection h4 {
+  text-align: center;
+  font-family: var(--section2);
+  font-size: 4vw;
+  font-weight: 100;
+  color: var(--white);
+}
+
+.comment__wrap {
+  -webkit-column-count: 4;
+  column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  margin: 50px;
+}
+
+.comment__wrap .comments:hover {
+  background-color: #ffffff12;
+}
+
+.comment__wrap .comments {
+  min-width: 300px;
+  break-inside: avoid-column;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff1e;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.comment__wrap .comments .info {
+  border-top: 1px solid #ffffff1e;
+  padding-top: 10px;
+  margin-top: 10px;
+  color: #ffffff62;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment__wrap .comments .info .edit {
+  cursor: pointer;
+}
+
+.comment__wrap .comments .modal {
+  color: #ffffff62;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ffffff62;
+  background-color: #161616;
+}
+
+.comment__wrap .comments .modal input:focus {
+  outline: none;
+}
+
+.comment__wrap .comments .modal input {
+  padding: 5px 0px;
+  display: block;
+  background: none;
+  color: #ffffff62;
+  border-bottom: 1px solid #ffffff62;
+  text-align: center;
+  font-family: 'gowunBatang';
+  margin-bottom: 0;
+}
+
+.comment__wrap .comments .modal input::placeholder {
+  text-align: center;
+}
+
+.comment__wrap .comments .modal span {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  font-size: 16px;
+}
+
+.comment__wrap .comments .modal span,
+.comment__wrap .comments .modal button {
+  padding: 5px 0;
+  width: 50%;
+  background: none;
+  color: #ffffff62;
+  cursor: pointer;
+  font-family: 'gowunBatang';
+  transition: all 0.3s;
+}
+
+.comment__wrap .comments .modal button {
+  border-left: 1px solid #ffffff62;
+}
+
+.comment__wrap .comments .modal span:hover,
+.comment__wrap .comments .modal button:hover {
+  background-color: #ffffff12;
+}
+
+.comment__wrap .comments .delete__btn {
+  background: transparent;
+  font-family: 'gowunBatang';
+  width: 48%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.comment__wrap .comments textarea:focus {
+  outline: none;
+}
+
+.comment__wrap .comments textarea {
+  resize: none;
+  width: 100%;
+  background-color: #ffffff18;
+  color: var(--white);
+  min-height: 100px;
+  padding: 10px;
+  word-break: keep-all;
+  line-height: 1.4;
+  font-family: 'gowunBatang';
+  spellcheck: "false";
+}
+
+.comment__wrap .comments textarea::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.comment__wrap .comments input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #ffffff1e;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  color: #fff;
+  font-family: 'gowunBatang';
+}
+
+.comment__wrap .comments .edit__btn {
+  background: transparent;
+  border: 1px solid #ffffff1e;
+  font-family: 'gowunBatang';
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.comment__wrap .comments input::placeholder {
+  color: #ffffff62;
+}
+
+
+
+@media (max-width:1400px) {
+  .comment__wrap {
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media (max-width:1076px) {
+  .comment__wrap {
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media (max-width:700px) {
+  .comment__wrap {
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+}
