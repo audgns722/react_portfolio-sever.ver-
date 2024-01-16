@@ -34,10 +34,9 @@ const App = () => {
           <Main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/portlist" element={<PortList />} />
             </Routes>
           </Main>
-          {/* <Script /> */}
+          <PortList />
           <Comment />
           <Footer />
         </>

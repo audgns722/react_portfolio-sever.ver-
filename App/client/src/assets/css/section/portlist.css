@@ -22,6 +22,18 @@
     padding: 20px;
     border-radius: 50px;
     margin-bottom: 50px;
+    position: relative;
+}
+
+.underline::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    bottom: -20px;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 .list__cate span {
@@ -34,6 +46,8 @@
     font-weight: 400;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
     transition: all 0.3s;
 }
 
@@ -86,15 +100,17 @@
 
 .list__item .item h4 svg {
     fill: #000;
-
 }
 
 .list__item .item {
-    width: 30%;
+    width: 49%;
     min-height: 300px;
     border: 1px solid #ffffff1e;
     border-radius: 20px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #portlist .list__item .item h4 {
@@ -116,12 +132,12 @@
 #portlist .list__item .item ul {
     color: #fff;
     font-family: 'gowunBatang';
-    padding: 20px 30px;
+    padding: 0 30px;
 }
 
 #portlist .list__item .item ul li {
     border-bottom: 1px solid #ffffff1e;
-    padding-bottom: 14px;
+    padding: 10px 0;
     display: flex;
     align-items: center;
 }
@@ -140,7 +156,8 @@
     background-position: center center;
     background-repeat: no-repeat;
     font-family: 'gowunBatang';
-
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 #portlist .list__item .item ul li:nth-of-type(2) span {}
