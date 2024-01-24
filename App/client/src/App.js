@@ -26,7 +26,7 @@ const App = () => {
   }, []);
   return (
     <>
-      {!isLoading ? (
+      {isLoading ? (
         <Loading setIsLoading={setIsLoading} />
       ) : (
         <>

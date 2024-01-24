@@ -4,10 +4,10 @@ import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Mouse from "../utils/Mouse";
 import Section5Popup from "../popup/Section5Popup";
+import { ClosePoupAnimation5, PoupAnimation5 } from "../js/Section5Animation";
 
-const Section5 = ({ setIsActive, isActive }) => {
+const Section5 = () => {
   gsap.registerPlugin(ScrollTrigger);
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const circleMask5Ref = useRef(null);
   const section5Ref = useRef(null);
@@ -16,207 +16,14 @@ const Section5 = ({ setIsActive, isActive }) => {
   const imgRef = useRef(null);
 
   useEffect(() => {
-    // 스크롤 제어 함수
     const toggleScroll = (isPopupOpen) => {
-      if (isPopupOpen) {
-        document.body.style.overflow = "hidden"; // 스크롤 막기
-      } else {
-        document.body.style.overflow = "unset"; // 스크롤 허용
-      }
+      document.body.style.overflow = isPopupOpen ? "hidden" : "unset";
     };
+
     toggleScroll(isPopupOpen);
 
-    return () => {
-      toggleScroll(false);
-    };
+    return () => toggleScroll(false);
   }, [isPopupOpen]);
-
-  const PoupAnimation5 = () => {
-    const tl = gsap.timeline();
-
-    // 미디어 쿼리 설정
-    const mediaQuery = window.matchMedia("(max-width: 1200px)");
-    let popupWidth = mediaQuery.matches ? "95%" : "80%";
-
-    // 미디어 쿼리에 대한 이벤트 리스너 추가
-    const updatePopupWidth = (e) => {
-      popupWidth = e.matches ? "95%" : "80%";
-    };
-
-    mediaQuery.addListener(updatePopupWidth);
-    tl.to("#sec5popup", {
-      display: "flex",
-      opacity: 1,
-    })
-      .fromTo(
-        "#sec5popup .popup__wrap",
-        {
-          width: "0%",
-          height: 0,
-          opacity: 0,
-        },
-        {
-          opacity: 0.5,
-          height: 1,
-          width: popupWidth,
-          ease: "power3.out",
-        }
-      )
-      .to(
-        "#sec5popup .popup__wrap",
-        {
-          opacity: 1,
-          height: "80vh",
-          ease: "power3.out",
-        },
-        "<0.3"
-      )
-      .fromTo(
-        "#sec5popup .close",
-        {
-          opacity: 0,
-          y: -30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-        }
-      )
-      .fromTo(
-        "#sec5popup .left",
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec5popup .right",
-        {
-          opacity: 0,
-          y: -50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      )
-      .fromTo(
-        "#sec5popup .right h2",
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        },
-        "-=1"
-      )
-      .fromTo(
-        "#sec5popup .right h3",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec5popup .javascript",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          ease: "power3.out",
-        },
-        ">"
-      )
-      .fromTo(
-        "#sec5popup .right p",
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        }
-      );
-
-    return tl;
-  };
-
-  const ClosePoupAnimation5 = () => {
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      "#sec5popup .right",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      {
-        opacity: 0,
-        y: -20,
-        ease: "power3.out",
-      }
-    )
-      .fromTo(
-        "#sec5popup .left",
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec5popup .close",
-        {
-          opacity: 1,
-          y: 0,
-        },
-        {
-          opacity: 0,
-          y: -50,
-        }
-      )
-      .to(
-        "#sec5popup .popup__wrap",
-        {
-          height: "1",
-          ease: "power3.out",
-        },
-        "<0.5"
-      )
-      .to("#sec5popup .popup__wrap", {
-        width: "1",
-        opacity: 0,
-        ease: "power3.out",
-      })
-      .to("#sec5popup", {
-        display: "none",
-        opacity: 0,
-        duration: 1,
-      });
-    return tl;
-  };
 
   const openPopup = () => {
     // 팝업 상태 변경
@@ -231,7 +38,7 @@ const Section5 = ({ setIsActive, isActive }) => {
 
   // 스크롤애니메이션
   useEffect(() => {
-    const maskAnimation = gsap.to(circleMask5Ref.current, {
+    gsap.to(circleMask5Ref.current, {
       attr: { r: 1000 },
       duration: 1.5,
       scrollTrigger: {
@@ -277,10 +84,12 @@ const Section5 = ({ setIsActive, isActive }) => {
     });
 
     return () => {
-      maskAnimation.kill();
-      ScrollTrigger.getById("section5-trigger")?.kill();
+      gsap.killTweensOf(circleMask5Ref.current);
+      gsap.killTweensOf(".contents5 .desc");
+      gsap.killTweensOf(text1Ref.current);
+      gsap.killTweensOf(text2Ref.current);
     };
-  }, []);
+  }, [isPopupOpen, imgRef]); // 종속성 추가
 
   return (
     <section id="section5" ref={section5Ref}>
@@ -303,8 +112,6 @@ const Section5 = ({ setIsActive, isActive }) => {
             viewBox="0 0 1920 579"
             onClick={openPopup}
             ref={imgRef}
-            onMouseEnter={() => setIsActive(true)}
-            onMouseLeave={() => setIsActive(false)}
           >
             <defs>
               <filter id="displacementFilter5">
@@ -347,7 +154,7 @@ const Section5 = ({ setIsActive, isActive }) => {
               mask="url(#circleMask5)"
             />
           </svg>
-          <Mouse imgRef={imgRef} isActive={isActive} />
+          <Mouse imgRef={imgRef} />
         </div>
       </div>
       <Section5Popup onClick={closePopup} />

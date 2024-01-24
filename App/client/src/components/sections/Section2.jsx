@@ -4,8 +4,9 @@ import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Mouse from "../utils/Mouse";
 import Section2Popup from "../popup/Section2Popup";
+import { ClosePoupAnimation2, PoupAnimation2 } from "../js/Section2Animation";
 
-const Section2 = ({ setIsActive, isActive }) => {
+const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -16,209 +17,14 @@ const Section2 = ({ setIsActive, isActive }) => {
   const imgRef = useRef(null);
 
   useEffect(() => {
-    // 스크롤 제어 함수
     const toggleScroll = (isPopupOpen) => {
-      if (isPopupOpen) {
-        document.body.style.overflow = "hidden"; // 스크롤 막기
-      } else {
-        document.body.style.overflow = "unset"; // 스크롤 허용
-      }
+      document.body.style.overflow = isPopupOpen ? "hidden" : "unset";
     };
+
     toggleScroll(isPopupOpen);
 
-    return () => {
-      toggleScroll(false);
-    };
+    return () => toggleScroll(false);
   }, [isPopupOpen]);
-
-  const PoupAnimation2 = () => {
-    const tl = gsap.timeline();
-
-    // 미디어 쿼리 설정
-    const mediaQuery = window.matchMedia("(max-width: 1200px)");
-    let popupWidth = mediaQuery.matches ? "95%" : "80%";
-
-    // 미디어 쿼리에 대한 이벤트 리스너 추가
-    const updatePopupWidth = (e) => {
-      popupWidth = e.matches ? "95%" : "80%";
-    };
-
-    mediaQuery.addListener(updatePopupWidth);
-
-    tl.to("#sec2popup", {
-      display: "flex",
-      opacity: 1,
-    })
-      .fromTo(
-        "#sec2popup .popup__wrap",
-        {
-          width: "0%",
-          height: 0,
-          opacity: 0,
-        },
-        {
-          opacity: 0.5,
-          height: 1,
-          width: popupWidth,
-          ease: "power3.out",
-        }
-      )
-      .to(
-        "#sec2popup .popup__wrap",
-        {
-          opacity: 1,
-          height: "80vh",
-          ease: "power3.out",
-        },
-        "<0.3"
-      )
-      .fromTo(
-        "#sec2popup .close",
-        {
-          opacity: 0,
-          y: -30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-        }
-      )
-      .fromTo(
-        "#sec2popup .left",
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec2popup .right",
-        {
-          opacity: 0,
-          y: -50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      )
-      .fromTo(
-        "#sec2popup .right h2",
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        },
-        "-=1"
-      )
-      .fromTo(
-        "#sec2popup .right h3",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec2popup .javascript",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          ease: "power3.out",
-        },
-        ">"
-      )
-      .fromTo(
-        "#sec2popup .right p",
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power3.out",
-        }
-      );
-
-    return tl;
-  };
-
-  const ClosePoupAnimation2 = () => {
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      "#sec2popup .right",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      {
-        opacity: 0,
-        y: -20,
-        ease: "power3.out",
-      }
-    )
-      .fromTo(
-        "#sec2popup .left",
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-          ease: "power3.out",
-        }
-      )
-      .fromTo(
-        "#sec2popup .close",
-        {
-          opacity: 1,
-          y: 0,
-        },
-        {
-          opacity: 0,
-          y: -50,
-        },
-        "<"
-      )
-      .to(
-        "#sec2popup .popup__wrap",
-        {
-          height: "1",
-          ease: "power3.out",
-        },
-        "<0.5"
-      )
-      .to("#sec2popup .popup__wrap", {
-        width: "1",
-        opacity: 0,
-        ease: "power3.out",
-      })
-      .to("#sec2popup", {
-        display: "none",
-        opacity: 0,
-        duration: 1,
-      });
-    return tl;
-  };
 
   const openPopup = () => {
     // 팝업 상태 변경
@@ -233,7 +39,7 @@ const Section2 = ({ setIsActive, isActive }) => {
 
   // 스크롤 트리거 애니메이션
   useEffect(() => {
-    const maskAnimation = gsap.to(circleMaskRef.current, {
+    gsap.to(circleMaskRef.current, {
       attr: { r: 820 },
       duration: 3,
       scrollTrigger: {
@@ -278,10 +84,12 @@ const Section2 = ({ setIsActive, isActive }) => {
     });
 
     return () => {
-      maskAnimation.kill();
-      ScrollTrigger.getById("section2-trigger")?.kill();
+      gsap.killTweensOf(circleMaskRef.current);
+      gsap.killTweensOf(".contents2 .desc");
+      gsap.killTweensOf(text1Ref.current);
+      gsap.killTweensOf(text2Ref.current);
     };
-  }, []);
+  }, [isPopupOpen, imgRef]); // 종속성 추가
 
   return (
     <section id="section2" ref={section2Ref}>
@@ -304,8 +112,6 @@ const Section2 = ({ setIsActive, isActive }) => {
             viewBox="0 0 504 719"
             onClick={openPopup}
             ref={imgRef}
-            onMouseEnter={() => setIsActive(true)}
-            onMouseLeave={() => setIsActive(false)}
           >
             <defs>
               <filter id="displacementFilter">
@@ -342,7 +148,7 @@ const Section2 = ({ setIsActive, isActive }) => {
               mask="url(#circleMask)"
             />
           </svg>
-          <Mouse imgRef={imgRef} isActive={isActive} />
+          <Mouse imgRef={imgRef} />
         </div>
       </div>
       <Section2Popup onClick={closePopup} />

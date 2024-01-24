@@ -90,13 +90,15 @@ canvas {
 
 .mouse__cursor {
   position: absolute;
+  pointer-events: none;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%); /* 커서 중앙을 마우스 위치에 맞춤 */
+  opacity: 0;
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .cursor2 {
