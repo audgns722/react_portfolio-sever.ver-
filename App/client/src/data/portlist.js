@@ -83,7 +83,7 @@ export const phpData = [
             },
             {
                 img: "https://cdn.svgporn.com/logos/javascript.svg",
-                desc: "로그인, 회원가입, 마이페이지, 퀴즈, 세션체크, 검색 등의 기능을 제공합니다"
+                desc: ""
             },
         ],
     },
